@@ -33,7 +33,15 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     var migrations = MigrationConfig()
     migrations.add(model: User.self, database: .sqlite)
     migrations.add(model: UserToken.self, database: .sqlite)
-    migrations.add(model: Todo.self, database: .sqlite)
+    migrations.add(model: Shopper.self, database: .sqlite)
+    migrations.add(model: ShopperToken.self, database: .sqlite)
+    migrations.add(model: Retailer.self, database: .sqlite)
+    migrations.add(model: RetailerToken.self, database: .sqlite)
+    migrations.add(model: CouponIssuer.self, database: .sqlite)
+    migrations.add(model: CouponIssuerToken.self, database: .sqlite)
+    migrations.add(model: Coupon.self, database: .sqlite)
+    migrations.add(model: ShopperPreferences.self, database: .sqlite)
+    migrations.add(model: ShopperToCoupon.self, database: .sqlite)
     services.register(migrations)
 
 }

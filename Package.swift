@@ -12,6 +12,8 @@ let package = Package(
         
         // 👤 Authentication and Authorization layer for Fluent.
         .package(url: "https://github.com/vapor/auth.git", from: "2.0.0"),
+        
+//        .package(url: "https://github.com/Brightify/Cuckoo.git", from: "2.0.0"),
     ],
     targets: [
         .target(name: "App", dependencies: ["Authentication", "FluentSQLite", "Vapor"]),
