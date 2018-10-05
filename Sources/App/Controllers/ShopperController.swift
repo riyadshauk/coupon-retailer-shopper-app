@@ -8,7 +8,7 @@
 import Crypto
 import Vapor
 import FluentSQLite
-import CoreLocation
+//import CoreLocation // cannot use CoreLocation on Linux deployment
 
 /// Creates new shoppers and logs them in.
 final class ShopperController {
@@ -36,7 +36,7 @@ final class ShopperController {
             // hash shopper's password using BCrypt
             let hash = try BCrypt.hash(shopper.password)
             // save new shopper
-            return Shopper(id: nil, name: shopper.name, email: shopper.email, passwordHash: hash, location: CLLocation())
+            return Shopper(id: nil, name: shopper.name, email: shopper.email, passwordHash: hash, latitude: 0, longitude: 0)
                 .save(on: req)
             }.map { shopper in
                 // map to public shopper response (omits password hash)
@@ -66,8 +66,8 @@ extension ShopperController {
         let shopper = try req.requireAuthenticated(Shopper.self)
         
         return try req.content.decode(UpdateShopperLocationRequest.self).flatMap { shopperLocationRequest -> Future<Shopper> in
-            let loc = CLLocation(latitude: shopperLocationRequest.latitude, longitude: shopperLocationRequest.longitude)
-            return Shopper(name: shopper.name, email: shopper.email, passwordHash: shopper.passwordHash, location: loc)
+//            let loc = CLLocation(latitude: shopperLocationRequest.latitude, longitude: shopperLocationRequest.longitude)
+            return Shopper(name: shopper.name, email: shopper.email, passwordHash: shopper.passwordHash, latitude: 0, longitude: 0)
                 .save(on: req)
             }.map { updatedShopper in
                 return try ShopperResponse(id: updatedShopper.requireID(), name: updatedShopper.name, email: updatedShopper.email, latitude: updatedShopper.latitude, longitude: updatedShopper.longitude)

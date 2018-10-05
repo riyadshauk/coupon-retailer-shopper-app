@@ -8,7 +8,7 @@
 import Authentication
 import FluentSQLite
 import Vapor
-import CoreLocation
+//import CoreLocation // cannot use CoreLocation on Linux deployment
 
 /// A registered shopper, capable of owning todo items.
 final class Shopper: SQLiteModel {
@@ -30,13 +30,13 @@ final class Shopper: SQLiteModel {
     var longitude: Double
     
     /// Creates a new `Shopper`.
-    init(id: Int? = nil, name: String, email: String, passwordHash: String, location: CLLocation) {
+    init(id: Int? = nil, name: String, email: String, passwordHash: String, latitude: Double, longitude: Double) {
         self.id = id
         self.name = name
         self.email = email
         self.passwordHash = passwordHash
-        self.latitude = location.coordinate.latitude
-        self.longitude = location.coordinate.longitude
+        self.latitude = latitude // location.coordinate.latitude
+        self.longitude = longitude // location.coordinate.longitude
     }
 }
 
