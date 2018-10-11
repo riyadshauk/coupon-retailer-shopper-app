@@ -1,0 +1,21 @@
+{
+  "name": "clientapi",
+  "version": "1.0.0",
+  "description": "This is a first draft TypeScript/JavaScript API to the REST WebServer API. It demonstrates how to interact with the REST API from a client. Please refer to the actual REST API for an authoritative source of truth, as this Client API is an example that is not necessarily maintained.",
+  "main": "clientAPI.ts",
+  "typings": "./interfaces/request.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "(tsc clientAPI.ts --target es6) || $(./node_modules/typescript/bin/tsc clientAPI.ts --target es6)",
+    "build-es5": "(tsc clientAPI.ts) || $(./node_modules/typescript/bin/tsc clientAPI.ts)",
+    "docts": "docts"
+  },
+  "author": "Riyad Shauk",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "docts": "^0.2.0",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.1.2"
+  }
+}

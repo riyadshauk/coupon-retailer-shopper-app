@@ -7,7 +7,7 @@ public func routes(_ router: Router) throws {
     
     // userController code here just to test out functionality...
     let userController = UserController()
-    router.post("user", use: userController.create)
+    router.post("users", use: userController.create)
     let basicUser = router.grouped(User.basicAuthMiddleware(using: BCryptDigest()))
     basicUser.post("userLogin", use: userController.login)
     
@@ -18,6 +18,7 @@ public func routes(_ router: Router) throws {
     router.post("retailer", use: retailerController.create)
     
     let couponIssuerController = CouponIssuerController() // There shall only be one coupon issuer; namely our backend coupon-issuing service
+    router.post("couponIssuer", use: couponIssuerController.create)
     
     // basic / password auth protected routes
 

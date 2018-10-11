@@ -46,9 +46,6 @@ final class ShopperController {
 }
 
 extension ShopperController {
-//    bearerShopper.post("preferences", use: shopperController.addPreferences)
-//    bearerShopper.post("location", use: shopperController.updateCurrentLocation)
-//    bearerShopper.get("relevantCoupon", use: shopperController.getRelevantCoupon)
     func upsertPreferences(_ req: Request) throws -> Future<ShopperPreferencesResponse> {
         // fetch auth'd shopper
         let shopper = try req.requireAuthenticated(Shopper.self)
@@ -105,8 +102,6 @@ struct CreateShopperRequest: Content {
 }
 
 struct UpdateShopperLocationRequest: Content {
-    var email: String
-    var password: String
     var latitude: Double
     var longitude: Double
 }
