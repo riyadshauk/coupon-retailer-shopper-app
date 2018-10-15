@@ -19,6 +19,16 @@
     </a>
 </p>
 
+How To Run Locally (ie: on `localhost:8080/`)
+===
+macOS:
+1) Install Vapor (https://docs.vapor.codes/3.0/install/macos/)
+2) Generate Xcode project for this REST API backend server (https://docs.vapor.codes/3.0/getting-started/hello-world/#generate-xcode-project).
+3) Run the project from inside Xcode – note the details, as seen in the screenshot on Vapor's documentation (https://docs.vapor.codes/3.0/getting-started/xcode/#run).
+
+Conceptual Design
+===
+
 To understand how this API works, please take a look at Sources/App/routes.swift.
 
 As far as this backend service and API is concerned, there are exactly 3 kinds of users: Shopper, Retailer, CouponIssuer. Each of these three users has his/her own login credentials. Ideally, the Shopper will login through a shopper-facing app, the Retailer will login through a retailer-facing app (possibly just another login page within the same as as the shopper, but leading to a different UX), and there will only be one CouponIssuer, which will be another backend server which can accept HTTP POST requests from this API and which can send its own HTTP POST requests to this API.

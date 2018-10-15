@@ -10,9 +10,12 @@ target 'App' do
   target 'AppTests' do
     inherit! :search_paths
     # Pods for testing
-    pod "SwiftyMocky"
-    pod "RxSwift"
-    pod "RxBlocking"
+#    pod "SwiftyMocky"
+#    pod "RxSwift"
+#    pod "RxBlocking"
+#    pod "Quick"
+#    pod "Nimble"
+#    pod "Alamofire"
   end
 
 end

@@ -64,7 +64,7 @@ extension ShopperController {
         
         return try req.content.decode(UpdateShopperLocationRequest.self).flatMap { shopperLocationRequest -> Future<Shopper> in
 //            let loc = CLLocation(latitude: shopperLocationRequest.latitude, longitude: shopperLocationRequest.longitude)
-            return Shopper(name: shopper.name, email: shopper.email, passwordHash: shopper.passwordHash, latitude: 0, longitude: 0)
+            return try Shopper(id: shopper.requireID(), name: shopper.name, email: shopper.email, passwordHash: shopper.passwordHash, latitude: shopperLocationRequest.latitude, longitude: shopperLocationRequest.longitude)
                 .save(on: req)
             }.map { updatedShopper in
                 return try ShopperResponse(id: updatedShopper.requireID(), name: updatedShopper.name, email: updatedShopper.email, latitude: updatedShopper.latitude, longitude: updatedShopper.longitude)
