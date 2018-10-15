@@ -14,16 +14,11 @@
     "examplePromises": "(tsc populateDB_usingPromises.ts --target es6) || $(./node_modules/typescript/bin/tsc populateDB_usingPromises.ts --target es6) ; npm run post-build-populateDB_usingPromises",
     "examplePromises-es5": "(tsc populateDB_usingPromises.ts) || $(./node_modules/typescript/bin/tsc populateDB_usingPromises.ts) ; npm run post-build-populateDB_usingPromises ; npm run post-build",
     "post-build-examplePromises": "sed -i'.bak' '/exports.__esModule/d' populateDB_usingPromises.js && sed -i'.bak' 's/exports\\[\\\"default\\\"\\]/module.exports/g' populateDB_usingPromises.js && sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' populateDB_usingPromises.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' populateDB_usingPromises.js && sed -i'.bak' 's/\\[\\\"default\\\"\\]//g' populateDB_usingPromises.js ; rm populateDB_usingPromises.js.bak"
-
   },
   "author": "Riyad Shauk",
   "license": "ISC",
-  "dependencies": {
-    "node-fetch": "^2.2.0"
-  },
   "devDependencies": {
     "@types/node": "^10.11.7",
-    "@types/node-fetch": "^2.1.2",
     "typescript": "^3.1.2"
   }
 }
