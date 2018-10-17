@@ -28,9 +28,7 @@ const createCouponIssuerAndCoupons = () => {
         .then((o: {token: string, tokenExpiration: string, id: Number}) => {
             // Do logged in stuff here...
             console.log(`couponIssuer with id of ${o.id} is logged in with token of ${o.token}, set to expire at ${o.tokenExpiration}`);
-            coupons.forEach((coupon) => {
-
-            });
+            coupons.forEach((coupon) => api.postCoupon(coupon, token));
         })
         .catch((err) => errfn(err));
     })
