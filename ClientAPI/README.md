@@ -19,7 +19,7 @@ Table of contents
    * [Table of contents](#table-of-contents)
    * [Overview](#overview)
    * [Setup](#setup)
-   * [Using the Node REPL (CLI)](#using-the-node-repl-(cli))
+   * [Using the Node REPL (CLI)](#using-the-node-repl-cli)
    * [Example Usage](#example-usage)
       * [Using Callbacks](#using-callbacks)
       * [Using Promises](#using-promises)
