@@ -4,13 +4,47 @@
     </a>
 </p>
 
+ClientAPI
+===
+
 This is a client API example, exemplifying how to call the REST API from a couple popular languages: TypeScript and JavaScript.
 
 This API is simply intended to be an example of how to call the REST API and is not necessarily authoritative and not necessarily maintained (or tested!). To understand how to interact with the REST API, directly interacting with and reading the REST API's test cases and codebase in general is the authoritative form of documentation.
 
+Table of contents
+=================
+
+<!--ts-->
+   * [ClientAPI](#clientapi)
+   * [Table of contents](#table-of-contents)
+   * [Overview](#overview)
+   * [Setup](#setup)
+   * [Using the Node REPL (CLI)](#using-the-node-repl-(cli))
+   * [Example Usage](#example-usage)
+      * [Using Callbacks](#using-callbacks)
+      * [Using Promises](#using-promises)
+   * [Client API Reference](#client-api-reference)
+      * [class ClientAPI](#class-clientapi)
+      * [constructor](#constructor)
+      * [createShopper](#createshopper)
+      * [createRetailer](#createRetailer)
+      * [createCouponIssuer](#createcouponissuer)
+      * [loginShopper](#loginshopper)
+      * [loginRetailer](#loginretailer)
+      * [loginCouponIssuer](#logincouponissuer)
+      * [upsertShopperPreferences](#upsertshopperpreferences)
+      * [updateShopperLocation](#updateshopperlocation)
+      * [getRelevantCoupons](#getrelevantcoupons)
+      * [processCoupon](#processcoupon)
+      * [postCoupon](#postcoupon)
+<!--te-->
+
+Setup
+---
+
 To include this as a JavaScript API in your client-side ES6 JavaScript project, simply run:
 
-** Note: this repo comes with the corresponding ES6 transiplations, by default (get on Node.js 10.12.0+!), but you can still generate ES5 JavaScript, as shown below **
+**Note: this repo comes with the corresponding ES6 transiplations, by default (get on Node.js 10.12.0+!), but you can still generate ES5 JavaScript, as shown below**
 
 $ `npm install`
 
@@ -22,6 +56,9 @@ $ `npm install`
 $ `npm run build-es5` to generate `clientAPI.js` directly from `clientAPI.ts`.
 
 This client-side API is written in a modular, self-documenting style, so to get started with using it, please have a look through the commented clientAPI.ts/js file.
+
+Using the Node REPL (CLI)
+---
 
 For example, to call this API from within Node.js, we would do the following:
 
@@ -99,7 +136,8 @@ Example Usage (Quick-start)
 
 (Please see populateDB.ts / populateDB.js):
 
-**Using Callbacks**
+Using Callbacks
+---
 
 ```typescript
 // populateDB.ts
@@ -197,9 +235,11 @@ No more data in response.
 $
 ```
 
-**Using Promises**
+Using Promises
+---
 
 ```typescript
+// populateDB_usingPromises.ts
 import ClientAPI from './clientAPI';
 import * as http from 'http';
 

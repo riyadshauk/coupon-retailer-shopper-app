@@ -24,7 +24,7 @@ api.createShopper('riyad', 'a@b.c', '123', '123')
     });
 })
     .catch((err) => errfn(err));
-api.createRetailer('riyad', 'a@b.c', '123', '123')
+api.createRetailer('shauk', 'a@b.c', '123', '123')
     .then((res) => {
     // Do stuff after creating retailer here...
     console.log(`Retailer created with status of ${String(res.status)}, and headers of ${JSON.stringify(res.headers)}, and a body of ${res.body}`);
