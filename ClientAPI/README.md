@@ -1,8 +1,16 @@
+<p align="center">
+    <a href="https://nodejs.org/api/esm.html">
+        <img src="https://github.com/riyadshauk/coupon-retailer-shopper-webserver/blob/master/ClientAPI/node@current-_=10.12.0-brightgreen.svg" alt="Node 10.12.0">
+    </a>
+</p>
+
 This is a client API example, exemplifying how to call the REST API from a couple popular languages: TypeScript and JavaScript.
 
 This API is simply intended to be an example of how to call the REST API and is not necessarily authoritative and not necessarily maintained (or tested!). To understand how to interact with the REST API, directly interacting with and reading the REST API's test cases and codebase in general is the authoritative form of documentation.
 
 To include this as a JavaScript API in your client-side ES6 JavaScript project, simply run:
+
+** Note: this repo comes with the corresponding ES6 transiplations, by default (get on Node.js 10.12.0+!), but you can still generate ES5 JavaScript, as shown below **
 
 $ `npm install`
 
@@ -18,22 +26,23 @@ This client-side API is written in a modular, self-documenting style, so to get 
 For example, to call this API from within Node.js, we would do the following:
 
 ```bash
-$ npm install                                   # make sure you are inside this ClientAPI directory
+$ npm install                                           # make sure you are inside this ClientAPI directory
 
 $ npm run build-es5
 
-> clientapi@1.0.0 build-es5 .../ClientAPI
-> (tsc clientAPI.ts --moduleResolution node) || $(./node_modules/typescript/bin/tsc clientAPI.ts --moduleResolution node) && npm run post-build
+> clientapi@1.0.0 build-es5 \{full path omitted\}/ClientAPI
+> (tsc clientAPI.ts) || $(./node_modules/typescript/bin/tsc clientAPI.ts) ; npm run post-build
 
+\{TS errors omitted...\}
 
-> clientapi@1.0.0 post-build .../ClientAPI
-> sed -i'.bak' '/exports.__esModule/d' clientAPI.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' clientAPI.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' clientAPI.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' clientAPI.js && rm clientAPI.js.bak
+> clientapi@1.0.0 post-build \{full path omitted\}/ClientAPI
+> sed -i'.bak' '/exports.__esModule/d' clientAPI.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' clientAPI.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' clientAPI.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' clientAPI.js ; rm clientAPI.js.bak
 
-$ node                                          # get inside the node REPL
-> const apiReq = require('./clientAPI');
+$ node                                                  # get inside the node REPL
+> const ClientAPI = require('./clientAPI');
 undefined
-> const api = new apiReq();                     // optionally provide a different backend URL of where the REST API is located.
-Successfully instantiated a clientAPI with a back-end REST API endpoint of http://riyadshauk.com:8080/
+> const api = new ClientAPI('localhost', 8080);         // optionally provide a different backend URL of where the REST API is located
+Successfully instantiated a clientAPI with a back-end REST API endpoint of http://localhost:8080 (Note: using HTTP!)
 undefined
 > api
 ClientAPI {
@@ -47,14 +56,40 @@ ClientAPI {
   updateShopperLocation: [Function],
   getRelevantCoupons: [Function],
   processCoupon: [Function],
-  postCoupon: [Function] }
-> api.createShopper('riyad', 'ab@c.d', '123', '123');
+  postCoupon: [Function],
+  apiHelpers:
+   { baseUrl: 'http://localhost:8080',
+     hostname: 'localhost',
+     port: 8080,
+     routes:
+      { createShopper: '/shopper',
+        createRetailer: '/retailer',
+        createCouponIssuer: '/couponIssuer',
+        loginShopper: '/shopperLogin',
+        loginRetailer: '/retailerLogin',
+        loginCouponIssuer: '/couponIssuerLogin',
+        upsertShopperPreferences: '/preferences',
+        updateShopperLocation: '/location',
+        getRelevantCoupons: '/relevantCoupons',
+        processCoupon: '/processCoupon',
+        postCoupon: '/relevantCoupon' },
+     postWithOptions: [Function: postWithOptions],
+     createUser: [Function: createUser],
+     createCouponIssuer: [Function: createCouponIssuer],
+     loginUser: [Function: loginUser],
+     loginCouponIssuer: [Function: loginCouponIssuer],
+     postWithAuthentication: [Function: postWithAuthentication] } }
+> api.createShopper('riyad', 'a@b.c', '123', '123', function (res) {
+...     // Do stuff after creating shopper here...
+...     console.log("Shopper created with status of " + String(res.status) + ", and headers of " + JSON.stringify(res.headers) + ", and a body of " + res.body);
+...     api.loginShopper('a@b.c', '123', function (o) {
+.....         // Do logged in stuff here...
+.....     });
+... });
 undefined
-> { longitude: 0,
-  email: 'ab@c.d',
-  name: 'riyad',
-  id: 3,
-  latitude: 0 }
+> Shopper created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"66","date":"Wed, 17 Oct 2018 01:53:09 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":0,"name":"riyad","longitude":0}
+No more data in response.
+No more data in response.
 
 > // hooray, we've successfully made our first HTTP request using this client-side JavaScript API
 ```
@@ -63,6 +98,8 @@ Example Usage (Quick-start)
 ===
 
 (Please see populateDB.ts / populateDB.js):
+
+** Using Callbacks **
 
 ```typescript
 // populateDB.ts
@@ -109,37 +146,176 @@ api.createCouponIssuer('213', '213', (res: { status: number, headers: http.Incom
 We can run this example using the following command: `$ npm run build-populateDB-es5 && node populateDB.js`, which gives us the following output:
 
 ```bash
-$ npm run build-populateDB-es5 && node populateDB.js 
+$ npm run build1 && npm run pop
 
-> clientapi@1.0.0 build-populateDB-es5 .../ClientAPI
-> (tsc populateDB.ts) || $(./node_modules/typescript/bin/tsc populateDB.ts) ; npm run post-build-populateDB ; npm run post-build
+> clientapi@1.0.0 build1 \{full path omitted\}/ClientAPI
+> npm run build-populateDB && npm run build
 
-...
 
-> clientapi@1.0.0 post-build-populateDB .../ClientAPI
+> clientapi@1.0.0 build-populateDB \{full path omitted\}/ClientAPI
+> (tsc populateDB.ts --target es6) || $(./node_modules/typescript/bin/tsc populateDB.ts --target es6) ; npm run post-build-populateDB && cp populateDB.js populateDB.mjs
+
+clientAPI.ts:64:70 - error TS2345: Argument of type '(res: { status: number; headers: IncomingHttpHeaders; body: string; }) => void' is not assignable to parameter of type '{ status: number; headers: IncomingHttpHeaders; body: string; }'.
+  Property 'status' is missing in type '(res: { status: number; headers: IncomingHttpHeaders; body: string; }) => void'.
+
+\{TS errors omitted...\}
+
+> clientapi@1.0.0 post-build-populateDB \{full path omitted\}/ClientAPI
 > sed -i'.bak' '/exports.__esModule/d' populateDB.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' populateDB.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' populateDB.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' populateDB.js && sed -i'.bak' 's/\[\"default\"\]//g' populateDB.js ; rm populateDB.js.bak
 
 
-> clientapi@1.0.0 post-build .../ClientAPI
+> clientapi@1.0.0 build \{full path omitted\}/ClientAPI
+> (tsc clientAPI.ts --target es6) || $(./node_modules/typescript/bin/tsc clientAPI.ts --target es6) ; npm run post-build && cp clientAPI.js clientAPI.mjs
+
+\{TS errors omitted...\}
+
+> clientapi@1.0.0 post-build \{full path omitted\}/ClientAPI
 > sed -i'.bak' '/exports.__esModule/d' clientAPI.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' clientAPI.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' clientAPI.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' clientAPI.js ; rm clientAPI.js.bak
 
+
+> clientapi@1.0.0 pop \{full path omitted\}/ClientAPI
+> node --experimental-modules populateDB.mjs
+
+(node:16930) ExperimentalWarning: The ESM module loader is experimental.
 Successfully instantiated a clientAPI with a back-end REST API endpoint of http://localhost:8080 (Note: using HTTP!)
-CouponIssuer created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"30","date":"Mon, 15 Oct 2018 20:39:07 GMT"}, and a body of {"id":1,"name":"CouponIssuer"}
+Retailer created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"39","date":"Wed, 17 Oct 2018 00:07:05 GMT"}, and a body of {"id":1,"name":"shauk","email":"c@b.a"}
 No more data in response.
-Retailer created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"39","date":"Mon, 15 Oct 2018 20:39:07 GMT"}, and a body of {"id":1,"name":"shauk","email":"c@b.a"}
+CouponIssuer created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"30","date":"Wed, 17 Oct 2018 00:07:05 GMT"}, and a body of {"id":1,"name":"CouponIssuer"}
 No more data in response.
-Shopper created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"66","date":"Mon, 15 Oct 2018 20:39:07 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":0,"name":"riyad","longitude":0}
+Shopper created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"66","date":"Wed, 17 Oct 2018 00:07:05 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":0,"name":"riyad","longitude":0}
 No more data in response.
-couponIssuer with id of 1 is logged in with token of wVIPTCWFn0zN15btlVJLcQ==, set to expire at 2018-10-16T01:39:08Z
+couponIssuer with id of 1 is logged in with token of PN5UgUOty2CcCfuD1UfCnw==, set to expire at 2018-10-17T05:07:06Z
 No more data in response.
-shopper with id of 1 is logged in with token of gQvkTYsD/yD7NsoUgmdKQg==, set to expire at 2018-10-16T01:39:08Z
+shopper with id of 1 is logged in with token of 2zkew2015/2P9uNSNjFIqA==, set to expire at 2018-10-17T05:07:06Z
 No more data in response.
-Retrieved relevant coupons for shopper with status of 404, and headers of {"content-length":"9","date":"Mon, 15 Oct 2018 20:39:08 GMT"}, and a body of Not found
+retailer with id of 1 is logged in with token of X7AWyMTTZZUKtUxyjHuxAQ==, set to expire at 2018-10-17T05:07:06Z
 No more data in response.
-retailer with id of 1 is logged in with token of /CB8eyGfRzpl9Ftx+5N8Mg==, set to expire at 2018-10-16T01:39:08Z
+Retrieved relevant coupons for shopper with status of 404, and headers of {"content-length":"9","date":"Wed, 17 Oct 2018 00:07:06 GMT"}, and a body of Not found
 No more data in response.
-Attempted to update location for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"70","date":"Mon, 15 Oct 2018 20:39:08 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":1.5,"name":"riyad","longitude":1.5}
+Attempted to update location for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"70","date":"Wed, 17 Oct 2018 00:07:06 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":1.5,"name":"riyad","longitude":1.5}
 No more data in response.
+$
+```
+
+** Using Promises **
+
+```typescript
+import ClientAPI from './clientAPI';
+import * as http from 'http';
+
+const errfn = (err) => console.error(`Promise ERROR: ${err}`);
+
+const hostname = 'localhost';
+const port = 8080;
+const api = new ClientAPI(hostname, port);
+api.createShopper('riyad', 'a@b.c', '123', '123')
+.then((res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => {
+    // Do stuff after creating shopper here...
+    console.log(`Shopper created with status of ${String(res.status)}, and headers of ${JSON.stringify(res.headers)}, and a body of ${res.body}`);
+    api.loginShopper('a@b.c', '123')
+    .then((o: {token: string, tokenExpiration: string, id: Number}) => {
+        // Do logged in stuff here...
+        console.log(`shopper with id of ${o.id} is logged in with token of ${o.token}, set to expire at ${o.tokenExpiration}`);
+        api.getRelevantCoupons(o.token)
+        .then((res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => {
+            console.log(`Retrieved relevant coupons for shopper with status of ${String(res.status)}, and headers of ${JSON.stringify(res.headers)}, and a body of ${res.body}`);
+        })
+        const newLoc = { latitude: 1.5, longitude: 1.5 };
+        api.updateShopperLocation(newLoc, o.token)
+        .then((res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => {
+            console.log(`Attempted to update location for shopper with status of ${String(res.status)}, and headers of ${JSON.stringify(res.headers)}, and a body of ${res.body}`);
+        })
+        .catch((err) => errfn(err));
+    })
+})
+.catch((err) => errfn(err));
+api.createRetailer('riyad', 'a@b.c', '123', '123')
+.then((res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => {
+    // Do stuff after creating retailer here...
+    console.log(`Retailer created with status of ${String(res.status)}, and headers of ${JSON.stringify(res.headers)}, and a body of ${res.body}`);
+    api.loginRetailer('a@b.c', '123')
+    .then((o: {token: string, tokenExpiration: string, id: Number}) => {
+        // Do logged in stuff here...
+        console.log(`retailer with id of ${o.id} is logged in with token of ${o.token}, set to expire at ${o.tokenExpiration}`);
+    })
+    .catch((err) => errfn(err));
+})
+.catch((err) => errfn(err));
+api.createCouponIssuer('123', '123')
+.then((res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => {
+    // Do stuff after creating couponIssuer here...
+    console.log(`CouponIssuer created with status of ${String(res.status)}, and headers of ${JSON.stringify(res.headers)}, and a body of ${res.body}`);
+    api.loginCouponIssuer('123')
+    .then((o: {token: string, tokenExpiration: string, id: Number}) => {
+        // Do logged in stuff here...
+        console.log(`couponIssuer with id of ${o.id} is logged in with token of ${o.token}, set to expire at ${o.tokenExpiration}`);
+    })
+    .catch((err) => errfn(err));
+})
+.catch((err) => errfn(err));
+```
+
+We can run this example using the following command: `$ npm run build1 && npm run popPromises`, which gives us the following output:
+
+```bash
+$ npm run build1 && npm run popPromises
+
+> clientapi@1.0.0 build1 \{full path omitted\}/ClientAPI
+> npm run build-populateDB && npm run build && npm run examplePromises
+
+
+> clientapi@1.0.0 build-populateDB \{full path omitted\}/ClientAPI
+> (tsc populateDB.ts --target es6) || $(./node_modules/typescript/bin/tsc populateDB.ts --target es6) ; npm run post-build-populateDB && cp populateDB.js populateDB.mjs
+
+\{TS errors omitted...\}
+
+> clientapi@1.0.0 post-build-populateDB \{full path omitted\}/ClientAPI
+> sed -i'.bak' '/exports.__esModule/d' populateDB.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' populateDB.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' populateDB.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' populateDB.js && sed -i'.bak' 's/\[\"default\"\]//g' populateDB.js ; rm populateDB.js.bak
+
+
+> clientapi@1.0.0 build \{full path omitted\}/ClientAPI
+> (tsc clientAPI.ts --target es6) || $(./node_modules/typescript/bin/tsc clientAPI.ts --target es6) ; npm run post-build && cp clientAPI.js clientAPI.mjs
+
+\{TS errors omitted...\}
+
+> clientapi@1.0.0 post-build \{full path omitted\}/ClientAPI
+> sed -i'.bak' '/exports.__esModule/d' clientAPI.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' clientAPI.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' clientAPI.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' clientAPI.js ; rm clientAPI.js.bak
+
+
+> clientapi@1.0.0 examplePromises \{full path omitted\}/ClientAPI
+> (tsc populateDB_usingPromises.ts --target es6) || $(./node_modules/typescript/bin/tsc populateDB_usingPromises.ts --target es6) ; npm run post-build-examplePromises ; npm run post-build
+
+\{TS errors omitted...\}
+
+> clientapi@1.0.0 post-build-examplePromises \{full path omitted\}/ClientAPI
+> sed -i'.bak' '/exports.__esModule/d' populateDB_usingPromises.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' populateDB_usingPromises.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' populateDB_usingPromises.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' populateDB_usingPromises.js && sed -i'.bak' 's/\[\"default\"\]//g' populateDB_usingPromises.js ; rm populateDB_usingPromises.js.bak && cp populateDB_usingPromises.js populateDB_usingPromises.mjs
+
+
+> clientapi@1.0.0 post-build \{full path omitted\}/ClientAPI
+> sed -i'.bak' '/exports.__esModule/d' clientAPI.js && sed -i'.bak' 's/exports\[\"default\"\]/module.exports/g' clientAPI.js && sed -i'.bak' -e '/require\(.*interfaces\/.*\)/d' clientAPI.js && sed -i'.bak' -e '/import.*interfaces\/.*/d' clientAPI.js ; rm clientAPI.js.bak
+
+
+> clientapi@1.0.0 popPromises \{full path omitted\}/ClientAPI
+> node --experimental-modules populateDB_usingPromises.mjs
+
+(node:24512) ExperimentalWarning: The ESM module loader is experimental.
+Successfully instantiated a clientAPI with a back-end REST API endpoint of http://localhost:8080 (Note: using HTTP!)
+No more data in response.
+CouponIssuer created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"30","date":"Wed, 17 Oct 2018 01:38:26 GMT"}, and a body of {"id":1,"name":"CouponIssuer"}
+No more data in response.
+Retailer created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"39","date":"Wed, 17 Oct 2018 01:38:26 GMT"}, and a body of {"id":1,"name":"riyad","email":"a@b.c"}
+No more data in response.
+Shopper created with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"66","date":"Wed, 17 Oct 2018 01:38:26 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":0,"name":"riyad","longitude":0}
+No more data in response.
+retailer with id of 1 is logged in with token of GtZN6jFDU+e0uj4udlMpdQ==, set to expire at 2018-10-17T06:38:26Z
+No more data in response.
+couponIssuer with id of 1 is logged in with token of 61WuKAm957hmRjGRtGnU4g==, set to expire at 2018-10-17T06:38:26Z
+No more data in response.
+shopper with id of 1 is logged in with token of WhSlE04FSre/UYZzNDRAQQ==, set to expire at 2018-10-17T06:38:27Z
+No more data in response.
+Retrieved relevant coupons for shopper with status of 404, and headers of {"content-length":"9","date":"Wed, 17 Oct 2018 01:38:27 GMT"}, and a body of Not found
+No more data in response.
+Attempted to update location for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"70","date":"Wed, 17 Oct 2018 01:38:27 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":1.5,"name":"riyad","longitude":1.5}
 $ 
 ```
 

@@ -19,9 +19,13 @@ final class UserController {
     /// Creates a new user.
     func create(_ req: Request) throws -> Future<UserResponse> {
         // decode request content
+        
+        print("testing to see if UserController.create is run...")
+        
         return try req.content.decode(CreateUserRequest.self).flatMap { user -> Future<User> in
             // verify that passwords match
             guard user.password == user.verifyPassword else {
+                print("test case should throw in here too, right?")
                 throw Abort(.badRequest, reason: "Password and verification must match.")
             }
             

@@ -13,11 +13,16 @@ let package = Package(
         // 👤 Authentication and Authorization layer for Fluent.
         .package(url: "https://github.com/vapor/auth.git", from: "2.0.0"),
         
+//        .package(url: "https://github.com/kylef/Spectre.git", from: "0.9.0"),
+        .package(url: "https://github.com/Quick/Quick.git", from: "1.3.2"),
+        
+        .package(url: "https://github.com/Quick/Nimble.git", from: "7.3.1"),
+        
     ],
     targets: [
         .target(name: "App", dependencies: ["Authentication", "FluentSQLite", "Vapor"]),
         .target(name: "Run", dependencies: ["App"]),
-        .testTarget(name: "AppTests", dependencies: ["App"])
+        .testTarget(name: "AppTests", dependencies: ["App", "Quick", "Nimble"])
     ]
 )
 

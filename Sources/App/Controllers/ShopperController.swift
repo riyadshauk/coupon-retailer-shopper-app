@@ -37,7 +37,8 @@ final class ShopperController {
             let hash = try BCrypt.hash(shopper.password)
             // save new shopper
             return Shopper(id: nil, name: shopper.name, email: shopper.email, passwordHash: hash, latitude: 0, longitude: 0)
-                .save(on: req)
+                .save(on: req)  // This may result in race condition trying to login before user is created
+//                .didCreate(on: req) // Something like this (instead of just .save) should block until user is created... incorrect argument req though... @todo
             }.map { shopper in
                 // map to public shopper response (omits password hash)
                 return try ShopperResponse(id: shopper.requireID(), name: shopper.name, email: shopper.email, latitude: shopper.latitude, longitude: shopper.longitude)
