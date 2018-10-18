@@ -64,16 +64,3 @@ Basically, this is how a common interaction with this REST API would go down (in
 12) The participating Retailer scans or punches in shopper coupon code at checkout. The fact that this coupon is pinged at checkout gets POSTed to this API.
 
 13) Finally, based on validity and terms of the coupon, the shopper will be rewarded accordingly (for instance, based on some progress, if that progress is achieved by the shopper, and while the coupon is not yet expired, the shopper will be refunded the ammount/percentage/points specified in the coupon -- post-POS/transaction with the participating retailer).
-
-
-Note: In case I have not yet deleted the following files, please ignore them and references to the classes defined within them, as they were generated with the vapor template I used, and I just kept them around in the first couple commits as a reference-to-self on how backend Swift and the Vapor library can be used with auth and a db. Please ignore the following files:
-
-Sources/App/Controllers/UserController.swift
-
-Sources/App/Controllers/TodoController.swift
-
-Sources/App/Models/User.swift
-
-Sources/App/Models/UserToken.swift
-
-Sources/App/Models/Todo.swift

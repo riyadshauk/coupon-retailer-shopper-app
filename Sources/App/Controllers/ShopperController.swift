@@ -72,17 +72,32 @@ extension ShopperController {
         }
     }
     
-    func getRelevantCoupons(_ req: Request) throws -> Future<[Coupon]> {
+    func getRelevantCoupons(_ req: Request) throws -> Future<[ShopperToCoupon]> {
         // fetch auth'd shopper
         let shopper = try req.requireAuthenticated(Shopper.self)
         
-        let coupons = Coupon.query(on: req)
-        .join(\ShopperToCoupon.couponID, to: \Coupon.id)
-        .filter(\Shopper.id == shopper.id)
+        let shopperID = try shopper.requireID()
+        
+        let shopperToCoupons = ShopperToCoupon.query(on: req)
+//        .join(\ShopperToCoupon.shopperID, to: \Coupon.id)
+        .filter(\ShopperToCoupon.shopperID == shopperID)
         .all()
-        return coupons
+        return shopperToCoupons
         
     }
+    
+//    func getCouponProgress(_ req: Request) throws -> Future<ShopperToCoupon> {
+//        return EventLoopFuture<ShopperToCoupon>
+//    }
+    
+//    func getCouponProgress(_ req: Request) throws -> Future<ShopperToCoupon> {
+//        // fetch auth'd shopper
+//        let shopper = try req.requireAuthenticated(Shopper.self)
+//
+//        return ShopperToCoupon.query(on: req)
+//        .
+//
+//    }
 }
 
 // MARK: Content
@@ -109,7 +124,7 @@ struct UpdateShopperLocationRequest: Content {
 
 struct UpsertShopperPreferencesRequest: Content {
     /// Reference to shopper that owns this ShopperPreferences.
-    var shopperID: Shopper.ID
+    var shopperID: Shopper.ID?
     
     // various shopper preferences...
     var jeans: Bool

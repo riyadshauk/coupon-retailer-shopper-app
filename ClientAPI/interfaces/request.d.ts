@@ -1,6 +1,6 @@
 interface ShopperPreferencesRequest {
     /// Reference to shopper that owns this ShopperPreferences.
-    shopperID: Number; /* Get this from the callback passed to loginShopper */
+    // shopperID: Number; /* Get this from the callback passed to loginShopper */
     
     // various shopper preferences...
     jeans: Boolean;

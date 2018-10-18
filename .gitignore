@@ -1,3 +1,7 @@
+*.js
+./**.js
+./**/*.js
+./*.js
 
 # Created by https://www.gitignore.io/api/vapor
 

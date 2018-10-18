@@ -31,8 +31,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     /// Configure migrations
     var migrations = MigrationConfig()
-    migrations.add(model: User.self, database: .sqlite)
-    migrations.add(model: UserToken.self, database: .sqlite)
     migrations.add(model: Shopper.self, database: .sqlite)
     migrations.add(model: ShopperToken.self, database: .sqlite)
     migrations.add(model: Retailer.self, database: .sqlite)

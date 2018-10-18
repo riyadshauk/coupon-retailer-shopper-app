@@ -1,7 +1,7 @@
-import './interfaces/request';
-import './interfaces/types';
 import * as http from 'http';
 import * as https from 'https';
+import './interfaces/request';
+import './interfaces/types';
 
 // @todo (enhancement? / possible code smell): use axios. Don't use fetch, don't use default http / https.
 
@@ -112,7 +112,7 @@ export default class ClientAPI {
      */
     upsertShopperPreferences = (shopperPrefs: ShopperPreferencesRequest, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void):
     void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> =>
-        this.apiHelpers.postWithAuthentication('preferences', shopperPrefs, token, cb);
+        this.apiHelpers.postWithAuthentication('upsertShopperPreferences', shopperPrefs, token, cb);
     
     
     /**
@@ -136,7 +136,7 @@ export default class ClientAPI {
      */
     getRelevantCoupons = (token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void):
     void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> =>
-        this.apiHelpers.postWithAuthentication('getRelevantCoupons', {}, token, cb);
+        this.apiHelpers.getWithAuthentication('getRelevantCoupons', {}, token, cb);
     
     /**
      * Processes the coupon for a shopper. This can only be done by an authorized retailer.
@@ -215,9 +215,6 @@ export default class ClientAPI {
                 return new Promise((resolve, reject) => { // see: https://www.tomas-dvorak.cz/posts/nodejs-request-without-dependencies/
                     const lib = this.apiHelpers.baseUrl.startsWith('https') ? https : http;
                     const req: http.ClientRequest = lib.request(options, (res: Response) => {
-                        // if (res.statusCode < 200 || res.statusCode > 299) {
-                        //     reject(new Error('Failed to load page, status code: ' + res.statusCode));
-                        // }
                         const body = [];
                         res.on('data', (chunk) => body.push(chunk));
                         res.on('end', () => {
@@ -249,6 +246,14 @@ export default class ClientAPI {
                 req.end();
             }
         },
+        standardBaseOptions: (routeKey: string) => {
+            return {
+                hostname: this.apiHelpers.hostname,
+                port: this.apiHelpers.port,
+                path: this.apiHelpers.routes[routeKey],
+                method: 'POST',
+            };
+        },
         createUser: (routeKey: string, name: string, email: string, password: string, verifyPassword: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void):
                 void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> => {
             const body = {
@@ -259,10 +264,7 @@ export default class ClientAPI {
             };
             const query = Object.keys(body).reduce((acc, key) => acc += `${encodeURIComponent(key)}=${encodeURIComponent(body[key])}&`, '');
             const options = { // see: https://nodejs.org/api/http.html#http_http_request_options_callback
-                hostname: this.apiHelpers.hostname,
-                port: this.apiHelpers.port,
-                path: this.apiHelpers.routes[routeKey],
-                method: 'POST',
+                ...this.apiHelpers.standardBaseOptions(routeKey),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Content-Length': Buffer.byteLength(query),
@@ -281,10 +283,7 @@ export default class ClientAPI {
             cb?: ({ token: string, tokenExpiration: string, id: Number }) => void): 
                 void | Promise<{ token: string, tokenExpiration: string, id: Number }> => {
             const options = { // see: https://nodejs.org/api/http.html#http_http_request_options_callback
-                hostname: this.apiHelpers.hostname,
-                port: this.apiHelpers.port,
-                path: this.apiHelpers.routes[routeKey],
-                method: 'POST',
+                ...this.apiHelpers.standardBaseOptions(routeKey),
                 auth: `${username}:${password}`,
             };
             const onEnd = (res: Response, data: string) => {
@@ -305,14 +304,11 @@ export default class ClientAPI {
         loginCouponIssuer: (password: string, cb: ({token: string, tokenExpiration: string, id: Number}) => void) => {
             return this.apiHelpers.loginUser('loginCouponIssuer', 'CouponIssuer', password, cb);
         },
-        postWithAuthentication: (routeKey: string, body: any, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void): 
+        sendWithAuthentication: (routeKey: string, body: any, token: string, baseOptions: {hostname: string, port: string, path: string, method: string}, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void): 
                                 void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> => {
             const query = Object.keys(body).reduce((acc, key) => acc += `${encodeURIComponent(key)}=${encodeURIComponent(body[key])}&`, '');
             const options = {
-                hostname: this.apiHelpers.hostname,
-                port: this.apiHelpers.port,
-                path: this.apiHelpers.routes[routeKey],
-                method: 'POST',
+                ...baseOptions,
                 headers: { // see: https://nodejs.org/api/http.html#http_http_request_options_callback
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Content-Length': Buffer.byteLength(query),
@@ -323,6 +319,16 @@ export default class ClientAPI {
                 return { status: res.statusCode, headers: res.headers, body: data };
             };
             return this.apiHelpers.postWithOptions<{ status: number, headers: http.IncomingHttpHeaders, body: string }>(options, onEnd, query, cb);
-        }
+        },
+        postWithAuthentication: (routeKey: string, body: any, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void): 
+        void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> => {
+            return this.apiHelpers.sendWithAuthentication(routeKey, body, token, this.apiHelpers.standardBaseOptions(routeKey), cb);
+        },
+        getWithAuthentication: (routeKey: string, body: any, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void): 
+        void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> => {
+            const standardBaseOptions = this.apiHelpers.standardBaseOptions(routeKey);
+            standardBaseOptions.method = 'GET';
+            return this.apiHelpers.sendWithAuthentication(routeKey, body, token, standardBaseOptions, cb);
+        },
     };
 }

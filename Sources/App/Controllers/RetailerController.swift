@@ -52,7 +52,7 @@ extension RetailerController {
             stc.timesProcessed += 1
             return stc.save(on: req)
             }.map { stc in
-                return ProcessCouponResponse(timesProcessed: stc.timesProcessed)
+                return ProcessCouponResponse(id: stc.id!, shopperID: stc.shopperID, couponID: stc.couponID, timesProcessed: stc.timesProcessed)
         }
     }
 }
@@ -88,6 +88,14 @@ struct RetailerResponse: Content {
 }
 
 struct ProcessCouponResponse: Content {
-    // @todo our response from coupon processing
+    /// The unique identifier for this `ShopperToCoupon`.
+    var id: Int
+    
+    /// Reference to Shopper that belongs to this ShopperToCoupon.
+    var shopperID: Shopper.ID
+    
+    /// Reference to Coupon that belongs to this ShopperToCoupon.
+    var couponID: Coupon.ID
+    
     var timesProcessed: Int
 }

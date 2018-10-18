@@ -44,7 +44,7 @@ Setup
 
 To include this as a JavaScript API in your client-side ES6 JavaScript project, simply run:
 
-**Note: this repo comes with the corresponding ES6 transiplations, by default (get on Node.js 10.12.0+!), but you can still generate ES5 JavaScript, as shown below**
+**Note: this repo comes with only TypeScript (which is simply a superset of JavaScript with strong typing) source files, by default, but you can still generate ES5 JavaScript, as shown below**
 
 $ `npm install`
 
@@ -228,7 +228,7 @@ shopper with id of 1 is logged in with token of 2zkew2015/2P9uNSNjFIqA==, set to
 No more data in response.
 retailer with id of 1 is logged in with token of X7AWyMTTZZUKtUxyjHuxAQ==, set to expire at 2018-10-17T05:07:06Z
 No more data in response.
-Retrieved relevant coupons for shopper with status of 404, and headers of {"content-length":"9","date":"Wed, 17 Oct 2018 00:07:06 GMT"}, and a body of Not found
+Retrieved relevant coupons for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"2","date":"Thu, 18 Oct 2018 07:28:28 GMT"}, and a body of []
 No more data in response.
 Attempted to update location for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"70","date":"Wed, 17 Oct 2018 00:07:06 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":1.5,"name":"riyad","longitude":1.5}
 No more data in response.
@@ -353,7 +353,7 @@ couponIssuer with id of 1 is logged in with token of 61WuKAm957hmRjGRtGnU4g==, s
 No more data in response.
 shopper with id of 1 is logged in with token of WhSlE04FSre/UYZzNDRAQQ==, set to expire at 2018-10-17T06:38:27Z
 No more data in response.
-Retrieved relevant coupons for shopper with status of 404, and headers of {"content-length":"9","date":"Wed, 17 Oct 2018 01:38:27 GMT"}, and a body of Not found
+Retrieved relevant coupons for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"2","date":"Thu, 18 Oct 2018 07:28:28 GMT"}, and a body of []
 No more data in response.
 Attempted to update location for shopper with status of 200, and headers of {"content-type":"application/json; charset=utf-8","content-length":"70","date":"Wed, 17 Oct 2018 01:38:27 GMT"}, and a body of {"email":"a@b.c","id":1,"latitude":1.5,"name":"riyad","longitude":1.5}
 $ 

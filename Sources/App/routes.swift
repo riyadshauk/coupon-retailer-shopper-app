@@ -5,12 +5,6 @@ import Vapor
 public func routes(_ router: Router) throws {
     // public routes
     
-    // userController code here just to test out functionality...
-    let userController = UserController()
-    router.post("users", use: userController.create)
-    let basicUser = router.grouped(User.basicAuthMiddleware(using: BCryptDigest()))
-    basicUser.post("userLogin", use: userController.login)
-    
     let shopperController = ShopperController()
     router.post("shopper", use: shopperController.create)
     
@@ -40,6 +34,7 @@ public func routes(_ router: Router) throws {
     bearerShopper.post("preferences", use: shopperController.upsertPreferences)
     bearerShopper.post("location", use: shopperController.updateCurrentLocation)
     bearerShopper.get("relevantCoupons", use: shopperController.getRelevantCoupons)
+//    bearerShopper.get("couponProgress", use: shopperController.getCouponProgress)
     
     bearerRetailer.post("processCoupon", use: retailerController.processCoupon)
     
