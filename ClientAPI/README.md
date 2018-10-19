@@ -20,7 +20,7 @@ Table of contents
    * [Overview](#overview)
    * [Setup](#setup)
    * [Using the Node REPL (CLI)](#using-the-node-repl-cli)
-   * [Example Usage](#example-usage)
+   * [Example Usage (Quick-start)](#example-usage-quick-start)
       * [Using Callbacks](#using-callbacks)
       * [Using Promises](#using-promises)
    * [Client API Reference](#client-api-reference)
@@ -134,7 +134,7 @@ No more data in response.
 Example Usage (Quick-start)
 ===
 
-(Please see populateDB.ts / populateDB.js):
+**Note: Please refer to [db_scripts](https://github.com/riyadshauk/coupon-retailer-shopper-webserver/tree/master/ClientAPI/db_scripts) for a complete [populator.ts](https://github.com/riyadshauk/coupon-retailer-shopper-webserver/tree/master/ClientAPI/db_scripts/populator.ts) script to get you up and running with integrating data in your front- or back-end services.** *The README on that page is designed to get you hacking along in no time!*
 
 Using Callbacks
 ---
