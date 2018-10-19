@@ -11,7 +11,7 @@
 To transpile and run this database populater script:
 
 ```bash
-$ npm install -g typescript
+$ npm install
 $ npm start
 ```
 
