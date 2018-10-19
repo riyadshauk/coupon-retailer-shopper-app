@@ -2,12 +2,13 @@
   "name": "db_scripts",
   "version": "1.0.0",
   "description": "",
-  "main": "populater.js",
+  "main": "populator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --target es5 populater.ts ; sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' ../clientAPI.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' ../clientAPI.js ; rm ../clientAPI.js.bak ; sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' populater.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' populater.js ; rm populater.js.bak",
-    "start": "npm run build && node populater.js",
-    "pop": "node populater.js"
+    "renameExtensions": "for f in *.js; do mv $f `basename $f .js`.mjs; done",
+    "build": "tsc --target es6 populator.ts ; sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' ../clientAPI.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' ../clientAPI.js ; rm ../clientAPI.js.bak ; sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' populator.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' populator.js ; rm populator.js.bak && npm run renameExtensions",
+    "start": "npm run build && node --experimental-modules populator.mjs",
+    "pop": "node --experimental-modules populator.js"
   },
   "author": "",
   "license": "ISC"

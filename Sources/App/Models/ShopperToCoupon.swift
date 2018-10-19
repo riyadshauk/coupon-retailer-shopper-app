@@ -104,6 +104,7 @@ extension ShopperToCoupon: Migration {
             builder.field(for: \.title)
             builder.field(for: \.productDiscountPercentage)
             builder.field(for: \.productDiscount)
+            builder.field(for: \.timesProcessed)
             builder.reference(from: \.shopperID, to: \Shopper.id)
             builder.reference(from: \.couponID, to: \Coupon.id)
         }
