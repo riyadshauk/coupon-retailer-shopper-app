@@ -47,11 +47,31 @@ final class RetailerController {
 extension RetailerController {
 //    bearerRetailer.post("processCoupon", use: retailerController.processCoupon)
     func processCoupon(_ req: Request) throws -> Future<ProcessCouponResponse> {
-        return try req.content.decode(ShopperToCoupon.self).flatMap { stc -> Future<ShopperToCoupon> in
-            // @todo process here (add more processing stuff here)
-            stc.timesProcessed += 1
-            return stc.save(on: req)
-            }.map { stc in
+        return try req.content.decode(ProcessCouponRequest.self).flatMap { processCouponRequest -> Future<[ShopperToCoupon]> in
+            
+            // @todo process here (we can add more processing stuff here, eg)
+            
+            let stclist = ShopperToCoupon.query(on: req)
+                .filter(\ShopperToCoupon.shopperID == processCouponRequest.shopperID)
+                .filter(\ShopperToCoupon.id == processCouponRequest.shopperToCouponID)
+                .all()
+            
+                return stclist
+            }.map { (stclist: [ShopperToCoupon]) in
+                guard stclist.count > 0 else {
+                    throw Abort(.badRequest, reason: "Invalid ProcessCouponRequest (the provided `shopperID` and `shopperToCouponID` pair does not exist in the database).")
+                }
+                let stc = stclist[0]
+                stc.timesProcessed += 1
+                _ = stc.save(on: req) // possible race condition between saving and sending back response (upon getting another request..? possibly consider later..)
+                
+                // https://docs.vapor.codes/3.0/vapor/client/
+                let client = try req.client()
+                let res = try client.post("http://coupon-issuer-url.com/endpoint") { post in
+                    try post.content.encode(stc)
+                }
+                print("coupon-issuer-response: \(res)")
+                
                 return ProcessCouponResponse(id: stc.id!, shopperID: stc.shopperID, couponID: stc.couponID, timesProcessed: stc.timesProcessed)
         }
     }
@@ -72,6 +92,11 @@ struct CreateRetailerRequest: Content {
     
     /// Retailer's password repeated to ensure they typed it correctly.
     var verifyPassword: String
+}
+
+struct ProcessCouponRequest: Content {
+    var shopperToCouponID: Int
+    var shopperID: Int
 }
 
 /// Public representation of retailer data.
