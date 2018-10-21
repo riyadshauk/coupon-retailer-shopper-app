@@ -148,9 +148,21 @@ export default class ClientAPI {
      * @param { status: number, headers: string, body: JSON } [cb] sends back response and possibly relevant body to client from REST API
      * @returns {(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)}
      */
-    processCoupon = (shopperToCoupon: ShopperToCouponRequest, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void):
+    // processCoupon = (shopperToCoupon: ShopperToCouponRequest, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void):
+    // void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> =>
+    //     this.apiHelpers.postWithAuthentication('processCoupon', shopperToCoupon, token, cb);
+
+    /**
+     * Assigns a shopper to a coupon. This can only be done by the authorized couponIssuer.
+     * 
+     * @param {ShopperToCouponRequest} shopperToCoupon 
+     * @param {string} token get this from callback passed to loginCouponIssuer
+     * @param { status: number, headers: string, body: JSON } [cb] sends back response and possibly relevant body to client from REST API
+     * @returns {(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)}
+     */
+    assignShopperToCoupon = (shopperToCoupon: ShopperToCouponRequest, token: string, cb?: (res: { status: number, headers: http.IncomingHttpHeaders, body: string }) => void):
     void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }> =>
-        this.apiHelpers.postWithAuthentication('processCoupon', shopperToCoupon, token, cb);
+        this.apiHelpers.postWithAuthentication('assignShopperToCoupon', shopperToCoupon, token, cb);
     
     /**
      * Posts a new coupon to the database. This can only be done by an authorized couponIssuer
@@ -204,6 +216,7 @@ export default class ClientAPI {
 
             /* == endpoint only accessible by logged in CouponIssuer == */
             postCoupon: '/relevantCoupon',
+            assignShopperToCoupon: '/assignShopperToCoupon',
         },
         postWithOptions: (options: any,
             onEnd: (res: Response, data: string) => T,

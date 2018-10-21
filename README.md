@@ -64,3 +64,7 @@ Basically, this is how a common interaction with this REST API would go down (in
 12) The participating Retailer scans or punches in shopper coupon code at checkout. The fact that this coupon is pinged at checkout gets POSTed to this API.
 
 13) Finally, based on validity and terms of the coupon, the shopper will be rewarded accordingly (for instance, based on some progress, if that progress is achieved by the shopper, and while the coupon is not yet expired, the shopper will be refunded the ammount/percentage/points specified in the coupon -- post-POS/transaction with the participating retailer).
+
+Contributing
+===
+**Please be sure to run `$ cd ClientAPI/db_scripts && npm test` and see no errors before committing any changes to this codebase : )**

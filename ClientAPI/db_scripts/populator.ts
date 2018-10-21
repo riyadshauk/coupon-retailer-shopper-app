@@ -184,7 +184,7 @@ const generateShopperToCoupon: ShopperToCouponRequest = () => {
     };
 };
 
-const doRetailerActions = (retailerTokens, cb?: Function) => doUserActions('retailer', api.processCoupon, generateShopperToCoupon, retailerTokens, cb);
+const doCouponIssuerActions = (couponIssuerToken, cb?: Function) => doUserActions('couponIssuer', api.assignShopperToCoupon, generateShopperToCoupon, new Array(10).fill(couponIssuerToken), cb);
 
 // Now we can finally test HTTP GET with DB query
 const getRelevantCoupons = (shopperTokens, cb?: Function) => {
@@ -240,19 +240,21 @@ interface ShopperToCouponRequest {
 /**
  * Actually execute the API queries to populate the Database here
  */
-createUser(COUPONISSUER)
-.then(() => loginUser(COUPONISSUER))
-.then((couponIssuerToken) => postCoupons(couponIssuerToken))
-.catch((e) => errfn(e));
-
 createUser(SHOPPER, 10)
 .then(() => loginUser(SHOPPER, 10))
 .then((shopperTokens) => {
     doShopperActions(shopperTokens)
+    .catch((e) => errfn(e));
 
     createUser(RETAILER, 10)
     .then(() => loginUser(RETAILER, 10))
-    .then((retailerTokens) => doRetailerActions(retailerTokens))
+        
+    .then(() => createUser(COUPONISSUER))
+    .then(() => loginUser(COUPONISSUER))
+    .then((couponIssuerToken) => {
+        postCoupons(couponIssuerToken)
+        .then(() => doCouponIssuerActions(couponIssuerToken))
+    })
     .then(() => getRelevantCoupons(shopperTokens))
     .catch((e) => errfn(e));
 })

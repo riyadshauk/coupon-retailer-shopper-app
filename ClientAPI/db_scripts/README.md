@@ -25,21 +25,26 @@ In case you're interested, this is how simple it is to automate populating the D
 /**
  * Actually execute the API queries to populate the Database here
  */
-createUser(COUPONISSUER)
-.then(() => loginUser(COUPONISSUER))
-.then((couponIssuerToken) => postCoupons(couponIssuerToken))
-.catch((e) => errfn(e));
-
 createUser(SHOPPER, 10)
 .then(() => loginUser(SHOPPER, 10))
 .then((shopperTokens) => {
     doShopperActions(shopperTokens)
+    .catch((e) => errfn(e));
 
     createUser(RETAILER, 10)
     .then(() => loginUser(RETAILER, 10))
-    .then((retailerTokens) => doRetailerActions(retailerTokens))
+        
+    .then(() => createUser(COUPONISSUER))
+    .then(() => loginUser(COUPONISSUER))
+    .then((couponIssuerToken) => {
+        postCoupons(couponIssuerToken)
+        .then(() => doCouponIssuerActions(couponIssuerToken))
+    })
     .then(() => getRelevantCoupons(shopperTokens))
     .catch((e) => errfn(e));
 })
 .catch((e) => errfn(e));
 ```
+
+## Contributing
+**Please be sure to run `$ npm test` and see no errors before committing any changes to this codebase : )**

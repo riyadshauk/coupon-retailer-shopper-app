@@ -49,6 +49,16 @@ final class CouponIssuerController {
                 .save(on: req)
         }
     }
+    
+    func assignShopperToCoupon(_ req: Request) throws -> Future<ProcessCouponResponse> {
+        return try req.content.decode(ShopperToCoupon.self).flatMap { stc -> Future<ShopperToCoupon> in
+            // @todo process here (add more processing stuff here)
+            stc.timesProcessed += 1
+            return stc.save(on: req)
+            }.map { stc in
+                return ProcessCouponResponse(id: stc.id!, shopperID: stc.shopperID, couponID: stc.couponID, timesProcessed: stc.timesProcessed)
+            }
+    }
 }
 
 // MARK: Content

@@ -37,6 +37,8 @@ Table of contents
       * [getRelevantCoupons](#getrelevantcoupons)
       * [processCoupon](#processcoupon)
       * [postCoupon](#postcoupon)
+      * [assignShopperToCoupon](#assignShopperToCoupon)
+    * [Contributing](#contributing)
 <!--te-->
 
 Setup
@@ -92,8 +94,9 @@ ClientAPI {
   upsertShopperPreferences: [Function],
   updateShopperLocation: [Function],
   getRelevantCoupons: [Function],
-  processCoupon: [Function],
+  processCoupon: [processCoupon],
   postCoupon: [Function],
+  assignShopperToCoupon: [Function],
   apiHelpers:
    { baseUrl: 'http://localhost:8080',
      hostname: 'localhost',
@@ -109,7 +112,8 @@ ClientAPI {
         updateShopperLocation: '/location',
         getRelevantCoupons: '/relevantCoupons',
         processCoupon: '/processCoupon',
-        postCoupon: '/relevantCoupon' },
+        postCoupon: '/relevantCoupon'
+        assignShopperToCoupon: '/assignShopperToCoupon' },
      postWithOptions: [Function: postWithOptions],
      createUser: [Function: createUser],
      createCouponIssuer: [Function: createCouponIssuer],
@@ -433,7 +437,7 @@ from exactly one of the 3 clients: Shopper, Retailer, CouponIssuer.
 > **@description** Updates (or inserts if not yet in database) the shopper's preferences.  
 > **@param** {*ShopperPreferencesRequest*} **shopperPrefs**  
 > **@param** {*string*} **token** get this from callback passed to loginShopper  
-> **@param** {* status: number, headers: string, body: JSON *} **\[cb\]** sends back response and possibly relevant body to client from REST API  
+> **@param** {*status: number, headers: string, body: JSON*} **\[cb\]** sends back response and possibly relevant body to client from REST API  
 > **@returns** {*(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)*}
 
 
@@ -441,28 +445,38 @@ from exactly one of the 3 clients: Shopper, Retailer, CouponIssuer.
 > **@description** Update's a shopper's location. This can only be done by an authorized shopper.  
 > **@param** {*UpdateShopperLocationRequest*} **shopperLocation**  
 > **@param** {*string*} **token** get this from callback passed to loginShopper  
-> **@param** {* status: number, headers: string, body: JSON *} **\[cb\]** sends back response and possibly relevant body to client from REST API  
+> **@param** {*status: number, headers: string, body: JSON*} **\[cb\]** sends back response and possibly relevant body to client from REST API  
 > **@returns** {*(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)*}
 
 
 ## getRelevantCoupons  
 > **@description** Gets the relevant coupons for a particular shopper. This can only be done by an authorized shopper.  
 > **@param** {*string*} **token** get this from callback passed to loginShopper  
-> **@param** {* status: number, headers: string, body: JSON *} **\[cb\]** sends back response and possibly relevant body to client from REST API  
+> **@param** {*status: number, headers: string, body: JSON*} **\[cb\]** sends back response and possibly relevant body to client from REST API  
 > **@returns** {*(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)*}
 
 
 ## processCoupon  
 > **@description** Processes the coupon for a shopper. This can only be done by an authorized retailer. This is meant to signify that a coupon has been processed (by a retailer) during a transaction at a retail store.  
-> **@param** {*ShopperToCouponRequest*} **shopperToCoupon**  
+> **@param** {*ProcessCouponRequest*} **processCouponRequest**  
 > **@param** {*string*} **token** get this from callback passed to loginRetailer  
-> **@param** {* status: number, headers: string, body: JSON *} **\[cb\]** sends back response and possibly relevant body to client from REST API  
+> **@param** {*status: number, headers: string, body: JSON*} **\[cb\]** sends back response and possibly relevant body to client from REST API  
 > **@returns** {*(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)*}
-
 
 ## postCoupon  
 > **@description** Posts a new coupon to the database. This can only be done by an authorized couponIssuer (namely, the backend service that will be creating coupons on behalf of each participating retailer, based on a set of criteria that each retailer will need to provide).  
 > **@param** {*CreateCouponRequest*} **createCouponRequest**   
 > **@param** {*string*} **token** get this from callback passed to loginCouponIssuer  
-> **@param** {* status: number, headers: string, body: JSON *} **\[cb\]** sends back response and possibly relevant body to client from REST API  
+> **@param** {*status: number, headers: string, body: JSON*} **\[cb\]** sends back response and possibly relevant body to client from REST API  
 > **@returns** {*(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)*}
+
+## assignShopperToCoupon  
+> **@description** Assigns a shopper to a coupon. This can only be done by the authorized couponIssuer.  
+> **@param** {*ShopperToCouponRequest*} **shopperToCoupon**  
+> **@param** {*string*} **token** get this from callback passed to loginCouponIssuer  
+> **@param** {*status: number, headers: string, body: JSON*} **\[cb\]** sends back response and possibly relevant body to client from REST API  
+> **@returns** {*(void | Promise<{ status: number, headers: http.IncomingHttpHeaders, body: string }>)*}
+
+Contributing
+===
+**Please be sure to run `$ cd db_scripts && npm test` and see no errors before committing any changes to this codebase : )**

@@ -39,4 +39,5 @@ public func routes(_ router: Router) throws {
     bearerRetailer.post("processCoupon", use: retailerController.processCoupon)
     
     bearerCouponIssuer.post("relevantCoupon", use: couponIssuerController.postCoupon)
+    bearerCouponIssuer.post("assignShopperToCoupon", use: couponIssuerController.assignShopperToCoupon)
 }

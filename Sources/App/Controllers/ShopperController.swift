@@ -52,6 +52,9 @@ extension ShopperController {
         let shopper = try req.requireAuthenticated(Shopper.self)
         
         return try req.content.decode(UpsertShopperPreferencesRequest.self).flatMap { newPrefs -> Future<ShopperPreferences> in
+            
+            // @todo also send these prefs to CouponIssuer
+            
             return try ShopperPreferences(shopperID: shopper.requireID(), jeans: newPrefs.jeans, shirts: newPrefs.shirts, longsleeve: newPrefs.longsleeve, shortsleeve: newPrefs.shortsleeve, computers: newPrefs.computers, videogames: newPrefs.videogames, sports: newPrefs.sports)
             .save(on: req)
             }.map { upedPrefs in

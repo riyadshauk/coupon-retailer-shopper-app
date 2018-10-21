@@ -107,6 +107,7 @@ extension ShopperToCoupon: Migration {
             builder.field(for: \.timesProcessed)
             builder.reference(from: \.shopperID, to: \Shopper.id)
             builder.reference(from: \.couponID, to: \Coupon.id)
+            builder.unique(on: \.shopperID, \.couponID)
         }
     }
 }
