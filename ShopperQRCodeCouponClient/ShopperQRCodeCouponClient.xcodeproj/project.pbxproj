@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A4D06C6217D99E200AE1F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D06C5217D99E200AE1F67 /* AppDelegate.swift */; };
+		1A4D06C8217D99E200AE1F67 /* ShopperToCouponsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D06C7217D99E200AE1F67 /* ShopperToCouponsVC.swift */; };
+		1A4D06CB217D99E200AE1F67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06C9217D99E200AE1F67 /* Main.storyboard */; };
+		1A4D06CD217D99E600AE1F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06CC217D99E600AE1F67 /* Assets.xcassets */; };
+		1A4D06D0217D99E600AE1F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */; };
+		1AA97F7E217DA23100329850 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA97F7D217DA23100329850 /* SignInFormViewController.swift */; };
+		1AA97F88217DA36300329850 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA97F85217DA31E00329850 /* Eureka.framework */; };
+		1AA97F89217DA36300329850 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA97F85217DA31E00329850 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1AA97F84217DA31E00329850 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51729DEB1B9A4F5E004A00EB;
+			remoteInfo = Eureka;
+		};
+		1AA97F86217DA31E00329850 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51729DF51B9A4F5E004A00EB;
+			remoteInfo = EurekaTests;
+		};
+		1AA97F8A217DA36300329850 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
+			remoteInfo = Eureka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1AA97F8C217DA36300329850 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1AA97F89217DA36300329850 /* Eureka.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1A4D06C2217D99E200AE1F67 /* ShopperQRCodeCouponClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopperQRCodeCouponClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A4D06C5217D99E200AE1F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A4D06C7217D99E200AE1F67 /* ShopperToCouponsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopperToCouponsVC.swift; sourceTree = "<group>"; };
+		1A4D06CA217D99E200AE1F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A4D06CC217D99E600AE1F67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A4D06CF217D99E600AE1F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A4D06D1217D99E600AE1F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AA97F7D217DA23100329850 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
+		1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = Eureka/Eureka.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A4D06BF217D99E200AE1F67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AA97F88217DA36300329850 /* Eureka.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A4D06B9217D99E200AE1F67 = {
+			isa = PBXGroup;
+			children = (
+				1A4D06C4217D99E200AE1F67 /* ShopperQRCodeCouponClient */,
+				1A4D06C3217D99E200AE1F67 /* Products */,
+				1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		1A4D06C3217D99E200AE1F67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A4D06C2217D99E200AE1F67 /* ShopperQRCodeCouponClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A4D06C4217D99E200AE1F67 /* ShopperQRCodeCouponClient */ = {
+			isa = PBXGroup;
+			children = (
+				1A4D06C5217D99E200AE1F67 /* AppDelegate.swift */,
+				1A4D06C7217D99E200AE1F67 /* ShopperToCouponsVC.swift */,
+				1A4D06C9217D99E200AE1F67 /* Main.storyboard */,
+				1A4D06CC217D99E600AE1F67 /* Assets.xcassets */,
+				1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */,
+				1A4D06D1217D99E600AE1F67 /* Info.plist */,
+				1AA97F7D217DA23100329850 /* SignInFormViewController.swift */,
+			);
+			path = ShopperQRCodeCouponClient;
+			sourceTree = "<group>";
+		};
+		1AA97F80217DA31E00329850 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AA97F85217DA31E00329850 /* Eureka.framework */,
+				1AA97F87217DA31E00329850 /* EurekaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A4D06C1217D99E200AE1F67 /* ShopperQRCodeCouponClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A4D06D4217D99E600AE1F67 /* Build configuration list for PBXNativeTarget "ShopperQRCodeCouponClient" */;
+			buildPhases = (
+				1A4D06BE217D99E200AE1F67 /* Sources */,
+				1A4D06BF217D99E200AE1F67 /* Frameworks */,
+				1A4D06C0217D99E200AE1F67 /* Resources */,
+				1AA97F8C217DA36300329850 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AA97F8B217DA36300329850 /* PBXTargetDependency */,
+			);
+			name = ShopperQRCodeCouponClient;
+			productName = ShopperQRCodeCouponClient;
+			productReference = 1A4D06C2217D99E200AE1F67 /* ShopperQRCodeCouponClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A4D06BA217D99E200AE1F67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Riyad Shauk";
+				TargetAttributes = {
+					1A4D06C1217D99E200AE1F67 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 1A4D06BD217D99E200AE1F67 /* Build configuration list for PBXProject "ShopperQRCodeCouponClient" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A4D06B9217D99E200AE1F67;
+			productRefGroup = 1A4D06C3217D99E200AE1F67 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1AA97F80217DA31E00329850 /* Products */;
+					ProjectRef = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1A4D06C1217D99E200AE1F67 /* ShopperQRCodeCouponClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1AA97F85217DA31E00329850 /* Eureka.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Eureka.framework;
+			remoteRef = 1AA97F84217DA31E00329850 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AA97F87217DA31E00329850 /* EurekaTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EurekaTests.xctest;
+			remoteRef = 1AA97F86217DA31E00329850 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A4D06C0217D99E200AE1F67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4D06D0217D99E600AE1F67 /* LaunchScreen.storyboard in Resources */,
+				1A4D06CD217D99E600AE1F67 /* Assets.xcassets in Resources */,
+				1A4D06CB217D99E200AE1F67 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A4D06BE217D99E200AE1F67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AA97F7E217DA23100329850 /* SignInFormViewController.swift in Sources */,
+				1A4D06C8217D99E200AE1F67 /* ShopperToCouponsVC.swift in Sources */,
+				1A4D06C6217D99E200AE1F67 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1AA97F8B217DA36300329850 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Eureka;
+			targetProxy = 1AA97F8A217DA36300329850 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A4D06C9217D99E200AE1F67 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A4D06CA217D99E200AE1F67 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A4D06CF217D99E600AE1F67 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A4D06D2217D99E600AE1F67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A4D06D3217D99E600AE1F67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A4D06D5217D99E600AE1F67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3985Y384Q;
+				INFOPLIST_FILE = ShopperQRCodeCouponClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.riyadshauk.ShopperQRCodeCouponClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A4D06D6217D99E600AE1F67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3985Y384Q;
+				INFOPLIST_FILE = ShopperQRCodeCouponClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.riyadshauk.ShopperQRCodeCouponClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A4D06BD217D99E200AE1F67 /* Build configuration list for PBXProject "ShopperQRCodeCouponClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A4D06D2217D99E600AE1F67 /* Debug */,
+				1A4D06D3217D99E600AE1F67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A4D06D4217D99E600AE1F67 /* Build configuration list for PBXNativeTarget "ShopperQRCodeCouponClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A4D06D5217D99E600AE1F67 /* Debug */,
+				1A4D06D6217D99E600AE1F67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A4D06BA217D99E200AE1F67 /* Project object */;
+}

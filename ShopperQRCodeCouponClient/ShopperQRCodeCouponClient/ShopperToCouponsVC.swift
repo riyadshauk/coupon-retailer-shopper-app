@@ -182,9 +182,6 @@ class ShopperToCouponCell: UICollectionViewCell {
     
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-//        if !shopperToCouponResponse.isEmpty {
-//            imageView.image = generateQRCode(from: "SHOPPERID\(shopperToCouponResponse[0].shopperID)SHOPPERTOCOUPONID\(shopperToCouponResponse[0].id)")
-//        }
         imageView.contentMode = .scaleAspectFill // remove stretching from image
         imageView.clipsToBounds = true  // make sure image fits within view constraints
         return imageView
@@ -230,10 +227,6 @@ class ShopperToCouponCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "V:|-16-[v0(300)]-16-[v1(1)]|", views: thumbnailImageView, separatorView)
         // top constraint
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: thumbnailImageView, attribute: .bottom, multiplier: 1, constant: 8))
-        // top constraint
-//        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 4))
-        // height constraint
-//        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
     }
     
     required init?(coder aDecoder: NSCoder) {
