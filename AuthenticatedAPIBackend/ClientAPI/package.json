@@ -1,0 +1,31 @@
+{
+  "name": "clientapi",
+  "version": "1.0.0",
+  "description": "This is a first draft TypeScript/JavaScript API to the REST WebServer API. It demonstrates how to interact with the REST API from a client. Please refer to the actual REST API for an authoritative source of truth, as this Client API is an example that is not necessarily maintained.",
+  "main": "clientAPI.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "(tsc clientAPI.ts --target es6) || $(./node_modules/typescript/bin/tsc clientAPI.ts --target es6) ; npm run post-build && cp clientAPI.js clientAPI.mjs",
+    "build-es5": "(tsc clientAPI.ts) || $(./node_modules/typescript/bin/tsc clientAPI.ts) ; npm run post-build",
+    "post-build": "sed -i'.bak' '/exports.__esModule/d' clientAPI.js && sed -i'.bak' 's/exports\\[\\\"default\\\"\\]/module.exports/g' clientAPI.js && sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' clientAPI.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' clientAPI.js ; rm clientAPI.js.bak",
+    "build-populateDB": "(tsc populateDB.ts --target es6) || $(./node_modules/typescript/bin/tsc populateDB.ts --target es6) ; npm run post-build-populateDB && cp populateDB.js populateDB.mjs",
+    "build-populateDB-es5": "(tsc populateDB.ts) || $(./node_modules/typescript/bin/tsc populateDB.ts) ; npm run post-build-populateDB ; npm run post-build",
+    "post-build-populateDB": "sed -i'.bak' '/exports.__esModule/d' populateDB.js && sed -i'.bak' 's/exports\\[\\\"default\\\"\\]/module.exports/g' populateDB.js && sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' populateDB.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' populateDB.js && sed -i'.bak' 's/\\[\\\"default\\\"\\]//g' populateDB.js ; rm populateDB.js.bak",
+    "examplePromises": "(tsc populateDB_usingPromises.ts --target es6) || $(./node_modules/typescript/bin/tsc populateDB_usingPromises.ts --target es6) ; npm run post-build-examplePromises ; npm run post-build",
+    "examplePromises-es5": "(tsc populateDB_usingPromises.ts --target es5) || $(./node_modules/typescript/bin/tsc populateDB_usingPromises.ts --target es5) ; npm run post-build-examplePromises ; npm run post-build",
+    "post-build-examplePromises": "sed -i'.bak' '/exports.__esModule/d' populateDB_usingPromises.js && sed -i'.bak' 's/exports\\[\\\"default\\\"\\]/module.exports/g' populateDB_usingPromises.js && sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' populateDB_usingPromises.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' populateDB_usingPromises.js && sed -i'.bak' 's/\\[\\\"default\\\"\\]//g' populateDB_usingPromises.js ; rm populateDB_usingPromises.js.bak && cp populateDB_usingPromises.js populateDB_usingPromises.mjs",
+    "build1": "npm run build-populateDB && npm run build && npm run examplePromises",
+    "build2": "npm run build-populateDB-es5 && npm run build-es5 && npm run examplePromises-es5",
+    "pop": "node --experimental-modules populateDB.mjs",
+    "popPromises": "node --experimental-modules populateDB_usingPromises.mjs"
+  },
+  "author": "Riyad Shauk",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.11.7",
+    "typescript": "^3.1.2"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}

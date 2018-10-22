@@ -1,0 +1,22 @@
+{
+  "name": "db_scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "populator.js",
+  "scripts": {
+    "test": "tsc --target es5 populator.spec.ts 1> /dev/null; mocha --timeout 25000 populator.spec.js",
+    "renameExtensions": "for f in *.js; do mv $f `basename $f .js`.mjs; done && for f in ../*.js; do mv $f ../`basename $f .js`.mjs; done",
+    "build": "tsc --target es6 populator.ts 1> /dev/null; sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' ../clientAPI.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' ../clientAPI.js ; rm ../clientAPI.js.bak ; sed -i'.bak' -e '/require\\(.*interfaces\\/.*\\)/d' populator.js && sed -i'.bak' -e '/import.*interfaces\\/.*/d' populator.js ; rm populator.js.bak && npm run renameExtensions",
+    "start": "npm run build && node --experimental-modules populator.mjs",
+    "pop": "node --experimental-modules populator.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "mocha": "^5.2.0"
+  }
+}
