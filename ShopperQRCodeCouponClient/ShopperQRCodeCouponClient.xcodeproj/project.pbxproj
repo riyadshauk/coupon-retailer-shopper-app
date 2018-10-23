@@ -13,31 +13,22 @@
 		1A4D06CD217D99E600AE1F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06CC217D99E600AE1F67 /* Assets.xcassets */; };
 		1A4D06D0217D99E600AE1F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */; };
 		1AA97F7E217DA23100329850 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA97F7D217DA23100329850 /* SignInFormViewController.swift */; };
-		1AA97F88217DA36300329850 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA97F85217DA31E00329850 /* Eureka.framework */; };
-		1AA97F89217DA36300329850 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA97F85217DA31E00329850 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1AA97F84217DA31E00329850 /* PBXContainerItemProxy */ = {
+		1AB26CF7217FE59B00A15069 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+			containerPortal = 1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 51729DEB1B9A4F5E004A00EB;
 			remoteInfo = Eureka;
 		};
-		1AA97F86217DA31E00329850 /* PBXContainerItemProxy */ = {
+		1AB26CF9217FE59B00A15069 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+			containerPortal = 1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 51729DF51B9A4F5E004A00EB;
 			remoteInfo = EurekaTests;
-		};
-		1AA97F8A217DA36300329850 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
-			remoteInfo = Eureka;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,7 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1AA97F89217DA36300329850 /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,7 +54,7 @@
 		1A4D06CF217D99E600AE1F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A4D06D1217D99E600AE1F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA97F7D217DA23100329850 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
-		1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = Eureka/Eureka.xcodeproj; sourceTree = "<group>"; };
+		1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = ../Eureka/Eureka.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA97F88217DA36300329850 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +73,7 @@
 			children = (
 				1A4D06C4217D99E200AE1F67 /* ShopperQRCodeCouponClient */,
 				1A4D06C3217D99E200AE1F67 /* Products */,
-				1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */,
+				1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,11 +99,11 @@
 			path = ShopperQRCodeCouponClient;
 			sourceTree = "<group>";
 		};
-		1AA97F80217DA31E00329850 /* Products */ = {
+		1AB26CF3217FE59B00A15069 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AA97F85217DA31E00329850 /* Eureka.framework */,
-				1AA97F87217DA31E00329850 /* EurekaTests.xctest */,
+				1AB26CF8217FE59B00A15069 /* Eureka.framework */,
+				1AB26CFA217FE59B00A15069 /* EurekaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,7 +123,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1AA97F8B217DA36300329850 /* PBXTargetDependency */,
 			);
 			name = ShopperQRCodeCouponClient;
 			productName = ShopperQRCodeCouponClient;
@@ -169,8 +157,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1AA97F80217DA31E00329850 /* Products */;
-					ProjectRef = 1AA97F7F217DA31E00329850 /* Eureka.xcodeproj */;
+					ProductGroup = 1AB26CF3217FE59B00A15069 /* Products */;
+					ProjectRef = 1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -181,18 +169,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1AA97F85217DA31E00329850 /* Eureka.framework */ = {
+		1AB26CF8217FE59B00A15069 /* Eureka.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Eureka.framework;
-			remoteRef = 1AA97F84217DA31E00329850 /* PBXContainerItemProxy */;
+			remoteRef = 1AB26CF7217FE59B00A15069 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AA97F87217DA31E00329850 /* EurekaTests.xctest */ = {
+		1AB26CFA217FE59B00A15069 /* EurekaTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = EurekaTests.xctest;
-			remoteRef = 1AA97F86217DA31E00329850 /* PBXContainerItemProxy */;
+			remoteRef = 1AB26CF9217FE59B00A15069 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -222,14 +210,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1AA97F8B217DA36300329850 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Eureka;
-			targetProxy = 1AA97F8A217DA36300329850 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1A4D06C9217D99E200AE1F67 /* Main.storyboard */ = {

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A0CC2A7217B10BF003B11CF /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0CC2A4217B107C003B11CF /* Eureka.framework */; };
-		1A0CC2A8217B10BF003B11CF /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0CC2A4217B107C003B11CF /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A0CC2AC217B111D003B11CF /* SignUpFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CC2AB217B111D003B11CF /* SignUpFormVC.swift */; };
 		1A0CC2AE217B1243003B11CF /* SignInFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CC2AD217B1243003B11CF /* SignInFormVC.swift */; };
+		1AB26CED217FE44E00A15069 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB26CEA217FE43700A15069 /* Eureka.framework */; };
+		1AB26CEE217FE44E00A15069 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB26CEA217FE43700A15069 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE412E8F19D9A1E4000F294E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE412E8E19D9A1E4000F294E /* AppDelegate.swift */; };
 		CE412E9119D9A1E4000F294E /* QRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE412E9019D9A1E4000F294E /* QRScannerVC.swift */; };
 		CE412E9419D9A1E4000F294E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE412E9219D9A1E4000F294E /* Main.storyboard */; };
@@ -53,23 +53,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1A0CC2A3217B107C003B11CF /* PBXContainerItemProxy */ = {
+		1AB26CE9217FE43700A15069 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A0CC29E217B107B003B11CF /* Eureka.xcodeproj */;
+			containerPortal = 1AB26CE4217FE43700A15069 /* Eureka.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 51729DEB1B9A4F5E004A00EB;
 			remoteInfo = Eureka;
 		};
-		1A0CC2A5217B107C003B11CF /* PBXContainerItemProxy */ = {
+		1AB26CEB217FE43700A15069 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A0CC29E217B107B003B11CF /* Eureka.xcodeproj */;
+			containerPortal = 1AB26CE4217FE43700A15069 /* Eureka.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 51729DF51B9A4F5E004A00EB;
 			remoteInfo = EurekaTests;
 		};
-		1A0CC2A9217B10BF003B11CF /* PBXContainerItemProxy */ = {
+		1AB26CEF217FE44E00A15069 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A0CC29E217B107B003B11CF /* Eureka.xcodeproj */;
+			containerPortal = 1AB26CE4217FE43700A15069 /* Eureka.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
 			remoteInfo = Eureka;
@@ -91,6 +91,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1AFF3B60217FE35D00A6DD63 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE8FFEF21BAB4E8000D43F38 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,7 +108,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CE8FFEEC1BAB4E7F00D43F38 /* QRCodeReader.framework in Embed Frameworks */,
-				1A0CC2A8217B10BF003B11CF /* Eureka.framework in Embed Frameworks */,
+				1AB26CEE217FE44E00A15069 /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,9 +116,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A0CC29E217B107B003B11CF /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = ../Eureka/Eureka.xcodeproj; sourceTree = "<group>"; };
 		1A0CC2AB217B111D003B11CF /* SignUpFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormVC.swift; sourceTree = "<group>"; };
 		1A0CC2AD217B1243003B11CF /* SignInFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormVC.swift; sourceTree = "<group>"; };
+		1AB26CE4217FE43700A15069 /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = ../../Eureka/Eureka.xcodeproj; sourceTree = "<group>"; };
 		CE412E8919D9A1E4000F294E /* QRCodeReader.swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE412E8D19D9A1E4000F294E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE412E8E19D9A1E4000F294E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,7 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE8FFEEB1BAB4E7F00D43F38 /* QRCodeReader.framework in Frameworks */,
-				1A0CC2A7217B10BF003B11CF /* Eureka.framework in Frameworks */,
+				1AB26CED217FE44E00A15069 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,11 +172,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A0CC29F217B107B003B11CF /* Products */ = {
+		1AB26CE5217FE43700A15069 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A0CC2A4217B107C003B11CF /* Eureka.framework */,
-				1A0CC2A6217B107C003B11CF /* EurekaTests.xctest */,
+				1AB26CEA217FE43700A15069 /* Eureka.framework */,
+				1AB26CEC217FE43700A15069 /* EurekaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,7 +190,7 @@
 				CEC20A871A14EF1400E7D0AD /* Resources */,
 				CE8FFED71BAB4E7F00D43F38 /* QRCodeReader */,
 				CE412E8A19D9A1E4000F294E /* Products */,
-				1A0CC29E217B107B003B11CF /* Eureka.xcodeproj */,
+				1AB26CE4217FE43700A15069 /* Eureka.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,12 +303,13 @@
 				CE412E8619D9A1E4000F294E /* Frameworks */,
 				CE412E8719D9A1E4000F294E /* Resources */,
 				CE8FFEF21BAB4E8000D43F38 /* Embed Frameworks */,
+				1AFF3B60217FE35D00A6DD63 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				CE8FFEEA1BAB4E7F00D43F38 /* PBXTargetDependency */,
-				1A0CC2AA217B10BF003B11CF /* PBXTargetDependency */,
+				1AB26CF0217FE44E00A15069 /* PBXTargetDependency */,
 			);
 			name = QRCodeReader.swift;
 			productName = QRCodeReader.swift;
@@ -382,8 +393,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1A0CC29F217B107B003B11CF /* Products */;
-					ProjectRef = 1A0CC29E217B107B003B11CF /* Eureka.xcodeproj */;
+					ProductGroup = 1AB26CE5217FE43700A15069 /* Products */;
+					ProjectRef = 1AB26CE4217FE43700A15069 /* Eureka.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -396,18 +407,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1A0CC2A4217B107C003B11CF /* Eureka.framework */ = {
+		1AB26CEA217FE43700A15069 /* Eureka.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Eureka.framework;
-			remoteRef = 1A0CC2A3217B107C003B11CF /* PBXContainerItemProxy */;
+			remoteRef = 1AB26CE9217FE43700A15069 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1A0CC2A6217B107C003B11CF /* EurekaTests.xctest */ = {
+		1AB26CEC217FE43700A15069 /* EurekaTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = EurekaTests.xctest;
-			remoteRef = 1A0CC2A5217B107C003B11CF /* PBXContainerItemProxy */;
+			remoteRef = 1AB26CEB217FE43700A15069 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -499,10 +510,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1A0CC2AA217B10BF003B11CF /* PBXTargetDependency */ = {
+		1AB26CF0217FE44E00A15069 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Eureka;
-			targetProxy = 1A0CC2A9217B10BF003B11CF /* PBXContainerItemProxy */;
+			targetProxy = 1AB26CEF217FE44E00A15069 /* PBXContainerItemProxy */;
 		};
 		CE412EA019D9A1E4000F294E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -646,6 +657,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M3985Y384Q;
 				INFOPLIST_FILE = QRCodeReader.swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riyadshauk.retailerqrcodereader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,6 +673,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M3985Y384Q;
 				INFOPLIST_FILE = QRCodeReader.swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riyadshauk.retailerqrcodereader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
