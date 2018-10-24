@@ -18,12 +18,12 @@ Table of contents
 
 <!--ts-->
    * [ClientAPI](#coupon-retailer-shopper-app)
-   * [Setup](#clone-me!)
-      * [What'd we just do?](#what'd-we-just-do?)
+   * [Setup](#clone-me)
+      * [What'd we just do?](#whatd-we-just-do)
    * [Table of contents](#table-of-contents)
    * [Brief Description](#brief-description)
-   * [Project Notes (Getting Situated with the Project Structure)](#project-notes-(getting-situated-with-the-project-structure))
-   * [Building and Running the webserver & demo apps](#building-and-running-the-webserver-&-demo-apps)
+   * [Project Notes (Getting Situated with the Project Structure)](#project-notes-getting-situated-with-the-project-structure))
+   * [Building and Running the webserver & demo apps](#building-and-running-the-webserver--demo-apps)
 <!--te-->
 
 Brief Description
