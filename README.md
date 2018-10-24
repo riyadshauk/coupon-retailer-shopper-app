@@ -4,9 +4,7 @@ Coupon-Retailer-Shopper App
 Clone Me!
 ===
 ```bash
-$ git clone https://github.com/riyadshauk/coupon-retailer-shopper-app.git
-$ cd coupon-retailer-shopper-app/Eureka && git submodule init && git submodule update
-$ cd ../QRCodeReader.swift && git submodule init && git submodule update
+$ git clone https://github.com/riyadshauk/coupon-retailer-shopper-app.git && cd coupon-retailer-shopper-app && git submodule init && git submodule update
 ```
 
 What'd we just do?
