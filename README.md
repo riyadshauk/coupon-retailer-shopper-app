@@ -5,14 +5,13 @@ Clone Me!
 ===
 ```bash
 $ git clone https://github.com/riyadshauk/coupon-retailer-shopper-app.git
-$ cd coupon-retailer-shopper-app/Eureka
-$ git submodule init
-$ git submodule update
+$ cd coupon-retailer-shopper-app/Eureka && git submodule init && git submodule update
+$ cd ../QRCodeReader.swift && git submodule init && git submodule update
 ```
 
 What'd we just do?
 ---
-I've used two 3rd-party libraries when building the mobile apps (a [QR Code reading library](https://github.com/yannickl/QRCodeReader.swift), and [form-creating library, Eureka](https://github.com/xmartlabs/Eureka) – to easily write a clean login form). To get Eureka working properly for this project, we utilize [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), as shown above. Alternatively, Cocoa Pods or Carthage could have been used.
+I've used two 3rd-party libraries when building the mobile apps (a [QR Code reading library](https://github.com/yannickl/QRCodeReader.swift), and [form-creating library, Eureka](https://github.com/xmartlabs/Eureka) – to easily write a clean login form). To get them working properly for this project, we utilize [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), as shown above. Alternatively, Cocoa Pods or Carthage could have been used.
 
 Table of contents
 =================
@@ -53,7 +52,7 @@ Actual Demo Functionality
 Project Notes (Getting Situated with the Project Structure)
 ===
 
-For the iPhone apps built in Swift 4, after cloning this repo, you will just need to open their corresponding .xcodeproj files to launch each app's Xcode project. Also, in case you have difficulty navigating to [the Retailer app, here's its location in the project](https://github.com/riyadshauk/coupon-retailer-shopper-app/tree/master/RetailerQRReader/Example/QRCodeReader.swift).
+For the iPhone apps built in Swift 4, after [properly cloning this repo](#clone-me), you will just need to open their corresponding .xcodeproj files to launch each app's Xcode project.
 
 Building and Running the webserver & demo apps
 ===

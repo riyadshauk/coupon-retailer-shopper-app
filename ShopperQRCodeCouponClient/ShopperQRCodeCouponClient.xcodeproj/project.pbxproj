@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A306AB12180358800057C66 /* Codables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A306AB02180358800057C66 /* Codables.swift */; };
-		1A306AB3218035F000057C66 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A306AB2218035F000057C66 /* Helpers.swift */; };
-		1A306AB52180365000057C66 /* ShopperToCouponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A306AB42180365000057C66 /* ShopperToCouponCell.swift */; };
-		1A4D06C6217D99E200AE1F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D06C5217D99E200AE1F67 /* AppDelegate.swift */; };
-		1A4D06C8217D99E200AE1F67 /* ShopperToCouponsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D06C7217D99E200AE1F67 /* ShopperToCouponsVC.swift */; };
-		1A4D06CB217D99E200AE1F67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06C9217D99E200AE1F67 /* Main.storyboard */; };
-		1A4D06CD217D99E600AE1F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06CC217D99E600AE1F67 /* Assets.xcassets */; };
-		1A4D06D0217D99E600AE1F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */; };
-		1AA97F7E217DA23100329850 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA97F7D217DA23100329850 /* SignInFormViewController.swift */; };
+		1A55D43B2180F2C800817B9F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55D42C2180F2C800817B9F /* Helpers.swift */; };
+		1A55D43C2180F2C800817B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A55D42D2180F2C800817B9F /* Assets.xcassets */; };
+		1A55D43D2180F2C800817B9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A55D42E2180F2C800817B9F /* LaunchScreen.storyboard */; };
+		1A55D43E2180F2C800817B9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A55D4302180F2C800817B9F /* Main.storyboard */; };
+		1A55D43F2180F2C800817B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55D4322180F2C800817B9F /* AppDelegate.swift */; };
+		1A55D4412180F2C800817B9F /* ShopperToCouponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55D4352180F2C800817B9F /* ShopperToCouponCell.swift */; };
+		1A55D4422180F2C800817B9F /* Codables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55D4372180F2C800817B9F /* Codables.swift */; };
+		1A55D4432180F2C800817B9F /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55D4392180F2C800817B9F /* SignInFormViewController.swift */; };
+		1A55D4442180F2C800817B9F /* ShopperToCouponsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55D43A2180F2C800817B9F /* ShopperToCouponsVC.swift */; };
 		1AB0640E2180621800B4A806 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB26CF8217FE59B00A15069 /* Eureka.framework */; };
 		1AB0640F2180621800B4A806 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB26CF8217FE59B00A15069 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -59,17 +59,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A306AB02180358800057C66 /* Codables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codables.swift; sourceTree = "<group>"; };
-		1A306AB2218035F000057C66 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		1A306AB42180365000057C66 /* ShopperToCouponCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopperToCouponCell.swift; sourceTree = "<group>"; };
 		1A4D06C2217D99E200AE1F67 /* ShopperQRCodeCouponClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopperQRCodeCouponClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A4D06C5217D99E200AE1F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A4D06C7217D99E200AE1F67 /* ShopperToCouponsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopperToCouponsVC.swift; sourceTree = "<group>"; };
-		1A4D06CA217D99E200AE1F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1A4D06CC217D99E600AE1F67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1A4D06CF217D99E600AE1F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1A4D06D1217D99E600AE1F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AA97F7D217DA23100329850 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
+		1A55D42C2180F2C800817B9F /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		1A55D42D2180F2C800817B9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A55D42F2180F2C800817B9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A55D4312180F2C800817B9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A55D4322180F2C800817B9F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A55D4332180F2C800817B9F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A55D4352180F2C800817B9F /* ShopperToCouponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopperToCouponCell.swift; sourceTree = "<group>"; };
+		1A55D4372180F2C800817B9F /* Codables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codables.swift; sourceTree = "<group>"; };
+		1A55D4392180F2C800817B9F /* SignInFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
+		1A55D43A2180F2C800817B9F /* ShopperToCouponsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopperToCouponsVC.swift; sourceTree = "<group>"; };
 		1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = ../Eureka/Eureka.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,48 +85,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A306AAA2180324E00057C66 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				1AA97F7D217DA23100329850 /* SignInFormViewController.swift */,
-				1A4D06C7217D99E200AE1F67 /* ShopperToCouponsVC.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		1A306AAD2180324E00057C66 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1A4D06C5217D99E200AE1F67 /* AppDelegate.swift */,
-				1A4D06C9217D99E200AE1F67 /* Main.storyboard */,
-				1A4D06CC217D99E600AE1F67 /* Assets.xcassets */,
-				1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */,
-				1A4D06D1217D99E600AE1F67 /* Info.plist */,
-				1A306AB2218035F000057C66 /* Helpers.swift */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1A306AAE2180324E00057C66 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1A306AB02180358800057C66 /* Codables.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		1A306AAF2180324E00057C66 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1A306AB42180365000057C66 /* ShopperToCouponCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		1A4D06B9217D99E200AE1F67 = {
 			isa = PBXGroup;
 			children = (
-				1A4D06C4217D99E200AE1F67 /* ShopperQRCodeCouponClient */,
+				1A55D4382180F2C800817B9F /* Controllers */,
+				1A55D4362180F2C800817B9F /* Models */,
+				1A55D42B2180F2C800817B9F /* Supporting Files */,
+				1A55D4342180F2C800817B9F /* Views */,
 				1A4D06C3217D99E200AE1F67 /* Products */,
 				1AB26CF2217FE59B00A15069 /* Eureka.xcodeproj */,
 			);
@@ -140,15 +105,42 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1A4D06C4217D99E200AE1F67 /* ShopperQRCodeCouponClient */ = {
+		1A55D42B2180F2C800817B9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1A306AAA2180324E00057C66 /* Controllers */,
-				1A306AAE2180324E00057C66 /* Models */,
-				1A306AAF2180324E00057C66 /* Views */,
-				1A306AAD2180324E00057C66 /* Supporting Files */,
+				1A55D42C2180F2C800817B9F /* Helpers.swift */,
+				1A55D42D2180F2C800817B9F /* Assets.xcassets */,
+				1A55D42E2180F2C800817B9F /* LaunchScreen.storyboard */,
+				1A55D4302180F2C800817B9F /* Main.storyboard */,
+				1A55D4322180F2C800817B9F /* AppDelegate.swift */,
+				1A55D4332180F2C800817B9F /* Info.plist */,
 			);
-			path = ShopperQRCodeCouponClient;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A55D4342180F2C800817B9F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A55D4352180F2C800817B9F /* ShopperToCouponCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A55D4362180F2C800817B9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A55D4372180F2C800817B9F /* Codables.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A55D4382180F2C800817B9F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A55D4392180F2C800817B9F /* SignInFormViewController.swift */,
+				1A55D43A2180F2C800817B9F /* ShopperToCouponsVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		1AB26CF3217FE59B00A15069 /* Products */ = {
@@ -243,9 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4D06D0217D99E600AE1F67 /* LaunchScreen.storyboard in Resources */,
-				1A4D06CD217D99E600AE1F67 /* Assets.xcassets in Resources */,
-				1A4D06CB217D99E200AE1F67 /* Main.storyboard in Resources */,
+				1A55D43E2180F2C800817B9F /* Main.storyboard in Resources */,
+				1A55D43C2180F2C800817B9F /* Assets.xcassets in Resources */,
+				1A55D43D2180F2C800817B9F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,12 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A306AB52180365000057C66 /* ShopperToCouponCell.swift in Sources */,
-				1AA97F7E217DA23100329850 /* SignInFormViewController.swift in Sources */,
-				1A4D06C8217D99E200AE1F67 /* ShopperToCouponsVC.swift in Sources */,
-				1A306AB12180358800057C66 /* Codables.swift in Sources */,
-				1A306AB3218035F000057C66 /* Helpers.swift in Sources */,
-				1A4D06C6217D99E200AE1F67 /* AppDelegate.swift in Sources */,
+				1A55D4432180F2C800817B9F /* SignInFormViewController.swift in Sources */,
+				1A55D4412180F2C800817B9F /* ShopperToCouponCell.swift in Sources */,
+				1A55D43F2180F2C800817B9F /* AppDelegate.swift in Sources */,
+				1A55D4422180F2C800817B9F /* Codables.swift in Sources */,
+				1A55D43B2180F2C800817B9F /* Helpers.swift in Sources */,
+				1A55D4442180F2C800817B9F /* ShopperToCouponsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,20 +268,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1A4D06C9217D99E200AE1F67 /* Main.storyboard */ = {
+		1A55D42E2180F2C800817B9F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1A4D06CA217D99E200AE1F67 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1A4D06CE217D99E600AE1F67 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A4D06CF217D99E600AE1F67 /* Base */,
+				1A55D42F2180F2C800817B9F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1A55D4302180F2C800817B9F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A55D4312180F2C800817B9F /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -418,7 +410,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3985Y384Q;
-				INFOPLIST_FILE = "ShopperQRCodeCouponClient/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -438,7 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3985Y384Q;
-				INFOPLIST_FILE = "ShopperQRCodeCouponClient/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,3 +1,6 @@
 [submodule "Eureka"]
 	path = Eureka
 	url = https://github.com/xmartlabs/Eureka.git
+[submodule "QRCodeReader.swift"]
+	path = QRCodeReader.swift
+	url = https://github.com/yannickl/QRCodeReader.swift.git
