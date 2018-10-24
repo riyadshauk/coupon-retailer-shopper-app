@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:../../QRCodeReader.swift/Sources"
+      name = "Sources">
+      <FileRef
+         location = "group:QRCodeReader.swift">
+      </FileRef>
+      <FileRef
+         location = "group:QRCodeReaderViewControllerDelegate.swift">
+      </FileRef>
+      <FileRef
+         location = "group:QRCodeReaderViewContainer.swift">
+      </FileRef>
+      <FileRef
+         location = "group:QRCodeReaderViewControllerBuilder.swift">
+      </FileRef>
+      <FileRef
+         location = "group:QRCodeReaderView.swift">
+      </FileRef>
+      <FileRef
+         location = "group:QRCodeReaderResult.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SwitchCameraButton.swift">
+      </FileRef>
+      <FileRef
+         location = "group:QRCodeReaderViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ToggleTorchButton.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ReaderOverlayView.swift">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "self:RetailerQRReader.xcodeproj">
+   </FileRef>
+</Workspace>
