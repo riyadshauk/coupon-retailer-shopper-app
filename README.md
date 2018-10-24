@@ -1,3 +1,31 @@
+Coupon-Retailer-Shopper App
+===
+
+Clone Me!
+===
+```bash
+$ git clone https://github.com/riyadshauk/coupon-retailer-shopper-app.git
+$ cd coupon-retailer-shopper-app/Eureka
+$ git init submodules
+```
+
+What'd we just do?
+---
+I've used two 3rd-party libraries when building the mobile apps (a [QR Code reading library](https://github.com/yannickl/QRCodeReader.swift), and [form-creating library, Eureka](https://github.com/xmartlabs/Eureka) – to easily write a clean login form). To get Eureka working properly for this project, we utilize [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), as shown above. Alternatively, Cocoa Pods or Carthage could have been used.
+
+Table of contents
+=================
+
+<!--ts-->
+   * [ClientAPI](#coupon-retailer-shopper-app)
+   * [Setup](#clone-me!)
+      * [What'd we just do?](#what'd-we-just-do?)
+   * [Table of contents](#table-of-contents)
+   * [Brief Description](#brief-description)
+   * [Project Notes (Getting Situated with the Project Structure)](#project-notes-(getting-situated-with-the-project-structure))
+   * [Building and Running the webserver & demo apps](#building-and-running-the-webserver-&-demo-apps)
+<!--te-->
+
 Brief Description
 ===
 
@@ -5,13 +33,20 @@ This project consists of an authenticated REST API + DB (written in Swift 4 + Va
 
 This project also consists of two client-side applications (both written in Swift 4): A Retailer app, RetailerQRReader, and a Shopper app, ShopperQRCodeCouponClient.
 
-I made these for a demo POC project. The two iOS applications were initially just hacked together over 2-3 days, so I didn't spend nearly as much time on code quality and design as I did on the authenticated REST API + DB I built.
+I made these for a demo POC project. The two iOS applications were initially just hacked together over a couple days, so I didn't spend nearly as much time on code quality and design as I did on the authenticated REST API + DB I built.
+
+Also **note the actual functionality of this demo**:
+* Shopper/Retailer login with basic authentication (assume account already created)
+* Shopper screen contains QR codes representing relevant coupons for him (assume he already saved his preferences)
+* Retailer scans a QR code displayed on the Shopper app and POSTs the coupon info to the backend using a bearer token (supplied on login)
+* Shopper GETs relevant coupons using bearer token (supplied on login)
+* When Shopper logs out and logs back in, he will see that a `timesProcessed` variable associated with the coupon that was scanned has increased by one
+  * *Not Fully Implemented:* In practice, another backend, possibly part of some larger system, would POST relevant coupons to the database based on a set of rules which would be initialized, in part, from the Retailer. These would be sent to the Shopper when he polls for relevant coupons.
 
 Project Notes (Getting Situated with the Project Structure)
 ===
 
 For the iPhone apps built in Swift 4, after cloning this repo, you will just need to open their corresponding .xcodeproj files to launch each app's Xcode project. Also, in case you have difficulty navigating to [the Retailer app, here's its location in the project](https://github.com/riyadshauk/coupon-retailer-shopper-app/tree/master/RetailerQRReader/Example/QRCodeReader.swift).
-
 
 Building and Running the webserver & demo apps
 ===
