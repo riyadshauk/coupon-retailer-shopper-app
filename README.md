@@ -22,6 +22,7 @@ Table of contents
       * [What'd we just do?](#whatd-we-just-do)
    * [Table of contents](#table-of-contents)
    * [Brief Description](#brief-description)
+      * [Actual Demo Functionality](#actual-demo-functionality)
    * [Project Notes (Getting Situated with the Project Structure)](#project-notes-getting-situated-with-the-project-structure))
    * [Building and Running the webserver & demo apps](#building-and-running-the-webserver--demo-apps)
 <!--te-->
@@ -35,12 +36,13 @@ This project also consists of two client-side applications (both written in Swif
 
 I made these for a demo POC project. The two iOS applications were initially just hacked together over a couple days, so I didn't spend nearly as much time on code quality and design as I did on the authenticated REST API + DB I built.
 
-Also **note the actual functionality of this demo**:
-* Shopper/Retailer login with basic authentication (assume account already created)
-* Shopper screen contains QR codes representing relevant coupons for him (assume he already saved his preferences)
-* Retailer scans a QR code displayed on the Shopper app and POSTs the coupon info to the backend using a bearer token (supplied on login)
-* Shopper GETs relevant coupons using bearer token (supplied on login)
-* When Shopper logs out and logs back in, he will see that a `timesProcessed` variable associated with the coupon that was scanned has increased by one
+Actual Demo Functionality
+---
+1. Shopper/Retailer login with basic authentication (assume account already created)
+2. Shopper screen contains QR codes representing relevant coupons for him (assume he already saved his preferences)
+3. Retailer scans a QR code displayed on the Shopper app and POSTs the coupon info to the backend using a bearer token (supplied on login)
+4. Shopper GETs relevant coupons using bearer token (supplied on login)
+5. When Shopper logs out and logs back in, he will see that a `timesProcessed` variable associated with the coupon that was scanned has increased by one
   * *Not Fully Implemented:* In practice, another backend, possibly part of some larger system, would POST relevant coupons to the database based on a set of rules which would be initialized, in part, from the Retailer. These would be sent to the Shopper when he polls for relevant coupons.
 
 Project Notes (Getting Situated with the Project Structure)
