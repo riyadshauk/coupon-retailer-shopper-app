@@ -26,9 +26,10 @@ Table of contents
       * [Actual Demo Functionality](#actual-demo-functionality)
    * [Project Notes (Getting Situated with the Project Structure)](#project-notes-getting-situated-with-the-project-structure))
    * [Building and Running the webserver & demo apps](#building-and-running-the-webserver--demo-apps)
+      * [Run Xcode as you Normally Would](#run-xcode-as-you-normally-would)
    * [Common Build Errors](#common-build-errors)
       * ["No such product Eureka"](#no-such-product-eureka)
-      * ["Library not loaded: @rpath/Eureka.framework/Eureka ... Reason: image not found"](#library-not-loaded-rpathEurekaframeworkEureka----Reason-image-not-found")
+      * ["Library not loaded: @rpath/Eureka.framework/Eureka ... Reason: image not found"](#library-not-loaded-rpatheurekaframeworkeureka--reason-image-not-found")
 <!--te-->
 
 Brief Description
@@ -57,9 +58,13 @@ For the iPhone apps built in Swift 4, after cloning this repo, you will just nee
 Building and Running the webserver & demo apps
 ===
 
-Note that in order to run these apps, you will need to modify the URL of the webserver to wherever you run your webserver (which will probably be localhost:8080). However, connecting to an iPhone app on localhost:8080 doesn't really work too well. For that, a simple solution is to download the [Ngrok tool](https://ngrok.com/), then run `ngrok http 8080` in your terminal, for example; this will open up your localhost webserver running on port 8080 at a specified temporary ngrok URL (with an 8 hour lifetime). Use that URL (outputted in your Terminal) as the webserver URL used in the Retailer and Shopper client apps (search for `http` or `ngrok` to find those locations, and do a simple find-replace).
+Note that in order to run these apps, you will need to modify the URL of the webserver to wherever you run your webserver (which will probably be localhost:8080). However, connecting to an iPhone app on localhost:8080 doesn't really work too well. For that, a simple solution is to download the [Ngrok tool](https://ngrok.com/), then run `ngrok http 8080` in your terminal, for example; this will open up your localhost webserver running on port 8080 at a specified temporary ngrok URL (with an 8 hour lifetime). Use that URL (outputted in your Terminal) as the webserver URL used in the Retailer and Shopper client apps (search for `http` or `ngrok` to find those locations, and do a simple find-replace). 
 
-Then just Run the Xcode project as you normally would. Go ahead and follow [these directions for how to test an iPhone app on a real device using Xcode](https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html), or something similar, for more info.
+Alternatively, you could run your webserver using a free tier account with [vapor.cloud](https://vapor.cloud), made by the developers who built the Vapor web framework that this project's backend webserver is running on (the webserver is actually an adaptation of the project generated from the following scaffolding command: `vapor new WebServer --template=auth-template`, as documented on [vapor.codes](https://docs.vapor.codes/3.0/getting-started/toolbox/#templates)).
+
+Run Xcode as you Normally Would
+---
+Go ahead and follow [these directions for how to test an iPhone app on a real device using Xcode](https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html), or something similar, for more info.
 
 Common Build Errors
 ===
@@ -68,13 +73,13 @@ Common Build Errors
 1. Sometimes Xcode 10 acts strange when two projects that depend on the same git submodule are open in the Xcode editor at the same time, so close the one you're not currently trying to build. Also quit Xcode and relaunch Xcode with the project you want to build.
 2. The next step is to change the active scheme to Eureka, then build, then change the active scheme back to the main app we want to build, and run the application. In more details, ie:
    * Select `Product > Scheme > Eureka`
-   * Select `Product > Build` (make sure to have your device selected, similar to how you [normally would](#building-and-running-the-webserver--demo-apps))
+   * Select `Product > Build` (make sure to have your device selected, similar to how you [normally would](#run-xcode-as-you-normally-would))
    * Select `Product > Scheme > ShopperQRCodeCouponClient`
-   * Select `Product > Run` (as you [normally would](#building-and-running-the-webserver--demo-apps))
+   * Select `Product > Run` (as you [normally would](#run-xcode-as-you-normally-would))
 
 "Library not loaded: @rpath/Eureka.framework/Eureka ... Reason: image not found"
 ---
 1. Click on the blue application icon named `ShopperQRCodeCouponClient` in the Project Navigator pane.
 2. Select `General` for the target `ShopperQRCodeCouponClient`.
 3. Under `Embedded Binaries`, click the plus-symbol, and select `Eureka.frameworkiOS`
-4. Stop and Run the application (as you [normally would](#building-and-running-the-webserver--demo-apps))
+4. Stop and Run the application (as you [normally would](#run-xcode-as-you-normally-would))
