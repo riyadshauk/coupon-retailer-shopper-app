@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://nodejs.org/api/esm.html">
-        <img src="https://github.com/riyadshauk/coupon-retailer-shopper-app/blob/master/ClientAPI/misc/node@current-_=10.12.0-brightgreen.svg" alt="Node 10.12.0">
+        <img src="AuthenticatedAPIBackend/ClientAPI/misc/node@current-_=10.12.0-brightgreen.svg" alt="Node 10.12.0">
     </a>
 </p>
 
