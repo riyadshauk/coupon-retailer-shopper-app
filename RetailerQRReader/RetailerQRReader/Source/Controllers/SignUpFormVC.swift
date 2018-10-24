@@ -1,12 +1,14 @@
 //
 //  SignUpForm.swift
-//  QRCodeReader.swift
+//  RetailerQRReader
 //
 //  Created by Riyad Shauk on 10/20/18.
-//  Copyright © 2018 Yannick Loriot. All rights reserved.
+//  Copyright © 2018 Riyad Shauk. All rights reserved.
 //
 
 import Eureka
+
+// NOTE: This is not currently used.
 
 class SignUpFormViewController: FormViewController {
     
